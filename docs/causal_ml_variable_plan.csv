@@ -1,0 +1,23 @@
+variable_or_group,role,recommendation,reason
+male,predetermined moderator,USE,Child sex is fixed before treatment
+urban,predetermined/context moderator,USE,Location type is central and used in original design
+indig_head,predetermined moderator,USE,Household-head identity characteristic
+lang_spa_head,predetermined moderator,USE,Predetermined language/ethnicity proxy
+head_schooling,predetermined moderator,USE,Slow-moving human-capital characteristic
+head_age,predetermined moderator,USE,Predetermined at survey date conditional on year
+head_male,predetermined moderator,USE,Fixed household-head characteristic
+married_head,household characteristic,USE WITH SENSITIVITY,Could potentially respond through household composition
+hh_agecat1-hh_agecat4,household composition,USE WITH SENSITIVITY,Mostly predetermined but composition can change
+adult_women/adult_men,household composition,USE WITH SENSITIVITY,Potential migration/composition response
+baselineCL municipality rates,baseline context,USE,Measured in 2012 before the reform
+municipality assets/connectivity,baseline context,USE,Auxiliary census-style municipality characteristics
+distance/ttime to labor office,enforcement context,USE,Predetermined geographic exposure
+income_adults_pc/income_q,contemporaneous mediator/outcome,DO NOT USE PRIMARY,Available only 2012-2017 and potentially affected by policy
+head_works/head occupation,possible mediator,AVOID PRIMARY,Adult labor behavior may respond to reform
+eligible/eligible_gr,CCT construction,AVOID PRIMARY,Uses contemporaneous grade/enrollment information
+works/hours/wages,main outcomes,DO NOT USE AS FEATURES,Post-treatment outcomes
+school attendance/enrollment,outcome/mechanism,DO NOT USE AS FEATURES,Potentially affected by policy
+firm size/contracts/job location,mechanisms/outcomes,DO NOT USE AS FEATURES,Observed conditional on working and post-treatment
+injury/risk/forbidden work,outcomes,DO NOT USE AS FEATURES,Post-treatment labor outcomes
+year/department,design controls,USE,Required to preserve original temporal/geographic design
+age running variable/design terms,design variables,USE,Required to preserve local DiDisc identification

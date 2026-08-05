@@ -1,0 +1,5 @@
+source,subgroup,estimate,n
+forest_holdout,het_time=0.0,-0.03140394312884151,1246
+forest_holdout,het_time=1.0,-0.020311431794816034,280
+wls_interaction,het_time=0,-0.03238449453246087,6392
+wls_interaction,het_time=1,0.0012566113433336995,1261

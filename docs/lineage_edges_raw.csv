@@ -1,0 +1,506 @@
+do_file,edge_type,path_or_value
+Master_00.do,do,${dodir_cleanHS_harm}/Persona/EH_Persona_`y'.do
+Master_00.do,do,${dodir_cleanHS_harm}/Income/EH_Income_`y'.do
+Master_00.do,do,${dodir_cleanHS_harm}/Expenses/EH_Expenses_`y'.do
+Master_00.do,do,${dodir_cleanHS}/2. Compiling/2.1.EH_Persona_compiling.do
+Master_00.do,do,${dodir_cleanHS}/2. Compiling/2.2.EH_Persona_cleaned.do
+Master_00.do,do,${dodir_cleanHS}/2. Compiling/2.3.EH_Income_compiling.do
+Master_00.do,do,${dodir_cleanHS}/2. Compiling/2.4.EH_Income_cleaned.do
+Master_00.do,do,${dodir_cleanHS}/2. Compiling/2.5.EH_Expenses_compiling.do
+Master_00.do,do,${dodir_cleanHS}/2. Compiling/2.6.EH_Expenses_cleaned.do
+Master_00.do,do,${dodir_cleanHS}/3. Preparing for analysis.do
+Master_00.do,do,${dodir_cleanCS}/1-cleaning_database_2008_child.do
+Master_00.do,do,${dodir_cleanCS}/2-cleaning_database_2008_household.do
+Master_00.do,do,${dodir_cleanCS}/3-calculating_variables_2008.do
+Master_00.do,do,${dodir_cleanCS}/4-harmonizedvar_child_2008.do
+Master_00.do,do,${dodir_cleanCS}/5-cleaning_database_2016_child.do
+Master_00.do,do,${dodir_cleanCS}/6-cleaning_database_2016_household.do
+Master_00.do,do,${dodir_cleanCS}/7-calculating_variables_2016.do
+Master_00.do,do,${dodir_cleanCS}/8-harmonizedvar_child_2016.do
+Master_00.do,do,${dodir_cleanCS}/9-Cleaning child survey data.do
+Master_00.do,do,${dodir_mainFig}/Fig2_DDiscEvtStudy.do
+Master_00.do,do,${dodir_mainFig}/Fig3_RDgraphs_14.do
+Master_00.do,do,${dodir_mainFig}/Fig4_Distance_ContractsInsurance.do
+Master_00.do,do,${dodir_mainTable}/Table_1_Desc_Statistics.do
+Master_00.do,do,${dodir_mainTable}/Table_2_Desc_Statistics_by_employer_type.do
+Master_00.do,do,${dodir_mainTable}/Table_3_DDisc_Work.do
+Master_00.do,do,${dodir_mainTable}/Table_4_DDisc_HeterogeneityDistanceToInspectors.do
+Master_00.do,do,${dodir_mainTable}/Table_5_DDisc_RiskInjuryWages.do
+Master_00.do,do,${dodir_mainTable}/Table_6_DDisc_JobLocationFirmSize.do
+Master_00.do,do,${dodir_appxFig}/Figure_A2_Articles.do
+Master_00.do,do,${dodir_appxFig}/Figure_A3_WorkbyAgeinMonths.do
+Master_00.do,do,${dodir_appxFig}/Figure_A4_Histograms.do
+Master_00.do,do,${dodir_appxTable}/Table_A2_Balance.do
+Master_00.do,do,${dodir_appxFig}/Figure_A5A6A7_DifferenceInDiscontinuities.do
+Master_00.do,do,${dodir_appxFig}/Figure_A8_DDiscEvtStudy_10-12.do
+Master_00.do,do,${dodir_appxFig}/Figure_A9A10_RDgraphs_1012.do
+Master_00.do,do,${dodir_appxTable}/Table_A3_DDisc_HeterogeneityByGender.do
+Master_00.do,do,${dodir_appxFig}/Figure_A11_Work over Time by Age Group.do
+Master_00.do,do,${dodir_appxTable}/Table_A4_Substitution.do
+Master_00.do,do,${dodir_appxTable}/Table_A5_DDisc_Work_1012.do
+Master_00.do,do,${dodir_appxTable}/Table_A6_TimeAllocationSchooling.do
+Master_00.do,do,${dodir_appxTable}/Table_A7_HHLaborSupply.do
+Master_00.do,do,${dodir_appxTable}/Table_A8_HHExpenditure.do
+Master_00.do,do,${dodir_appxTable}/Table_A9_DDisc_HeterogeneityByDrivingTime.do
+Master_00.do,do,${dodir_appxTable}/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do
+Master_00.do,do,${dodir_appxTable}/Table_A11_Work_FunctionalFormRobustness.do
+Master_00.do,do,${dodir_appxTable}/Table_A12_SocialDesirability.do
+Master_00.do,do,${dodir_appxTable}/Table_A13_DiffinDiff.do
+Master_00.do,do,${dodir_appxTable}/Table_A14_Kamei.do
+Master_00.do,do,${dodir_appxTable}/Table_A15_Work_OtherRobustness.do
+Master_00.do,do,${dodir_appxTable}/Table_A16A17_Balance_StackedRiskInjury.do
+Master_00.do,do,${dodir_appxFig}/Figure_A12_RDgraphsStackedRiskInjury.do
+Master_00.do,do,${dodir_appxTable}/Table_A18_RiskInjury_Robustness.do
+Master_00.do,do,${dodir_appxTable}/Table_A19_RiskInjuryByAgeGroup.do
+Master_00.do,do,${dodir_appxFig}/Figure_A13_Permits by Age & Inc.do
+Master_00.do,do,${dodir_appxTable}/Table_A20_DDisc_InformalWork.do
+Master_00.do,global,maindir=D:/BID/Replication Package
+Master_00.do,global,raw_data=$maindir/1.RawData/Household Survey
+Master_00.do,global,raw_dataCS=$maindir/1.RawData/Child Labor Survey
+Master_00.do,global,dodir=$maindir/2.DoFiles
+Master_00.do,global,dodir_cleanHS=$dodir/data_cleaning/Household Survey
+Master_00.do,global,dodir_cleanHS_harm=$dodir/data_cleaning/Household Survey/1. Harmonizing
+Master_00.do,global,dodir_cleanCS=$dodir/data_cleaning/Child Labor Survey
+Master_00.do,global,dodir_mainFig=$dodir/main_figures
+Master_00.do,global,dodir_mainTable=$dodir/main_tables
+Master_00.do,global,dodir_appxFig=$dodir/appendix_figures
+Master_00.do,global,dodir_appxTable=$dodir/appendix_tables
+Master_00.do,global,relabeled_data=$maindir/3.CleanData/1. Household Survey
+Master_00.do,global,relabeled_dataCS=$maindir/3.CleanData/2. Child Labor Survey
+Master_00.do,global,other_raw=$maindir/1.RawData/auxiliar
+Master_00.do,global,other_relabeled=$maindir/3.CleanData/auxiliar
+Master_00.do,global,tabledir=$maindir/4.Output/Tables
+Master_00.do,global,figuredir=$maindir/4.Output/Figures
+appendix_figures/Figure_A11_Work over Time by Age Group.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,global,outcomes=risks_a
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,global,outcomes3=injury_a 
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,global,outcomes=risks_a
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,global,outcomes2=hazardousw_a
+appendix_figures/Figure_A12_RDgraphsStackedRiskInjury.do,global,outcomes3=injury_a 
+appendix_figures/Figure_A13_Permits by Age & Inc.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_figures/Figure_A2_Articles.do,use,${other_raw}/articledata.dta
+appendix_figures/Figure_A3_WorkbyAgeinMonths.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A4_Histograms.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,use,`densitypre`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,use,`densitypost`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,save,`densitypost`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,save,`densitypre`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,save,`densityrev`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,merge_using,`densitypost`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,merge_using,`densityrev`n''
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,global,poly_1=X post Xpost
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,global,poly_2=$poly_1  X2   X2post 
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,global,poly_3=$poly_2 X3 X3post
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,global,oneside_1=X
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,global,oneside_2=X X2
+appendix_figures/Figure_A5A6A7_DifferenceInDiscontinuities.do,global,oneside_3=X X2 X3
+appendix_figures/Figure_A8_DDiscEvtStudy_10-12.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A8_DDiscEvtStudy_10-12.do,global,yvars=works
+appendix_figures/Figure_A8_DDiscEvtStudy_10-12.do,global,xvars=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.year i.depto#i.year
+appendix_figures/Figure_A9A10_RDgraphs_1012.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A9A10_RDgraphs_1012.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A9A10_RDgraphs_1012.do,use,${relabeled_data}/HHsurvey.dta
+appendix_figures/Figure_A9A10_RDgraphs_1012.do,global,outcomes=works
+appendix_figures/Figure_A9A10_RDgraphs_1012.do,global,outcomes=works
+appendix_figures/Figure_A9A10_RDgraphs_1012.do,global,outcomes=works
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,merge_using,${other_raw}/baselineCL.dta
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,global,heterogeneity=het_time
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,global,indep=xxwh3 xxw3 `h'
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,global,xw14=postx`h' treatw14 runningw14 treatxrunningw14 treatw14x`h'   
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,global,xwplus14=postx`h' treatw14 runningw14 treatxrunningw14 treatw14x`h' posturban treatw14urban xxurban 
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,global,xwplus14b=postx`h' treatw14 runningw14 treatxrunningw14 treatw14x`h' postbase treatw14base xxbase
+appendix_tables/Table_A10_DDisc_HeterogeneityByDistance_Robustness.do,global,xvars= post urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men  i.depto#i.year
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,global,cluster=age_mo_year
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,global,x1w=xx xxr treatw14 runningw14 treatxrunningw14 post post_rev
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,global,dem=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,global,x2w=$x1w running2w14 treatxrunning2w14
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,global,x1wp=$x1w postxrunningw14 postrxrunningw14
+appendix_tables/Table_A11_Work_FunctionalFormRobustness.do,global,x2wp=$x1w running2w14 treatxrunning2w14 postxrunning2w14 postrxrunning2w14
+appendix_tables/Table_A12_SocialDesirability.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A12_SocialDesirability.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.depto#i.year
+appendix_tables/Table_A12_SocialDesirability.do,global,xvars2=post post_rev
+appendix_tables/Table_A12_SocialDesirability.do,global,yvars=works
+appendix_tables/Table_A12_SocialDesirability.do,global,x1w=xx xxr treatw14 runningw14 treatxrunningw14 post post_rev
+appendix_tables/Table_A12_SocialDesirability.do,global,dem=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A13_DiffinDiff.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A13_DiffinDiff.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.age i.depto#i.year
+appendix_tables/Table_A13_DiffinDiff.do,global,yvars=works 
+appendix_tables/Table_A13_DiffinDiff.do,global,cluster=age_mo_year
+appendix_tables/Table_A13_DiffinDiff.do,global,xdid=xx xxr treatw14 post post_rev
+appendix_tables/Table_A13_DiffinDiff.do,global,dem=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A14_Kamei.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A15_Work_OtherRobustness.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A15_Work_OtherRobustness.do,global,cluster=age_mo_year
+appendix_tables/Table_A15_Work_OtherRobustness.do,global,x1w=xx xxr treatw14 runningw14 treatxrunningw14 post post_rev
+appendix_tables/Table_A15_Work_OtherRobustness.do,global,dem=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A15_Work_OtherRobustness.do,global,eix1w=xx  treatw14 runningw14 treatxrunningw14 post 
+appendix_tables/Table_A15_Work_OtherRobustness.do,global,dem2=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.depto#i.year
+appendix_tables/Table_A15_Work_OtherRobustness.do,global,x1wc=xx treatw14 runningw14 treatxrunningw14 post
+appendix_tables/Table_A16A17_Balance_StackedRiskInjury.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_tables/Table_A16A17_Balance_StackedRiskInjury.do,global,x=xx post treat running treatxrunning
+appendix_tables/Table_A16A17_Balance_StackedRiskInjury.do,global,balance=c_gender hhsize h_age_head h_edu_head h_male_head indig_head h_area
+appendix_tables/Table_A16A17_Balance_StackedRiskInjury.do,global,balance=c_gender hhsize h_age_head h_edu_head h_male_head indig_head h_area
+appendix_tables/Table_A18_RiskInjury_Robustness.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_tables/Table_A18_RiskInjury_Robustness.do,global,dem=h_edu_head h_male_head h_age_head indig_head c_gender hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men c_area i.c_depto#i.year
+appendix_tables/Table_A18_RiskInjury_Robustness.do,global,outcomes=risks_a
+appendix_tables/Table_A18_RiskInjury_Robustness.do,global,outcomes2=injury_a
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,x=xx post treat running treatxrunning
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,xy=xx post treaty runningy treatxrunningy
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,x2=${x}  running2 treatxrunning2 
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,x2y=${xy}  runningy2 treatxrunningy2
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,dem2=h_edu_head h_male_head h_age_head indig_head c_gender hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men c_area i.c_depto#i.year
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,outcomes=risks_a  
+appendix_tables/Table_A19_RiskInjuryByAgeGroup.do,global,outcomes2=injury_a
+appendix_tables/Table_A20_DDisc_InformalWork.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A20_DDisc_InformalWork.do,global,yvars=works informal 
+appendix_tables/Table_A20_DDisc_InformalWork.do,global,x14=treat14 running14 treatxrunning14
+appendix_tables/Table_A20_DDisc_InformalWork.do,global,xw14=treatw14 runningw14 treatxrunningw14 
+appendix_tables/Table_A20_DDisc_InformalWork.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A2_Balance.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A2_Balance.do,global,outcomes=head_schooling head_male head_age indig_head male hhsize
+appendix_tables/Table_A3_DDisc_HeterogeneityByGender.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A3_DDisc_HeterogeneityByGender.do,global,heterogeneity=male
+appendix_tables/Table_A3_DDisc_HeterogeneityByGender.do,global,xw14=postx`h' post_revx`h' treatw14 runningw14 treatxrunningw14 treatw14x`h' `h'  
+appendix_tables/Table_A3_DDisc_HeterogeneityByGender.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A4_Substitution.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A4_Substitution.do,merge_using,${other_raw}/baselineCL.dta
+appendix_tables/Table_A4_Substitution.do,global,dem=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men 
+appendix_tables/Table_A4_Substitution.do,global,xdid15=u15post u15rev
+appendix_tables/Table_A4_Substitution.do,global,xdid17=u17post u17rev
+appendix_tables/Table_A4_Substitution.do,global,xdidage=agepost agerev
+appendix_tables/Table_A5_DDisc_Work_1012.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A5_DDisc_Work_1012.do,global,yvars=works hours_week_a self_employed_a wrk_forother_a forbidden_a not_forbidden_a  
+appendix_tables/Table_A5_DDisc_Work_1012.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.depto#i.year
+appendix_tables/Table_A5_DDisc_Work_1012.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.depto#i.year
+appendix_tables/Table_A6_TimeAllocationSchooling.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+appendix_tables/Table_A6_TimeAllocationSchooling.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,x=xx post treat running treatxrunning
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,dem=h_edu_head h_male_head h_age_head indig_head c_gender hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men c_area i.c_depto#i.year
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,outcomes=ch_min_total 
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,x14=treat14 running14 treatxrunning14
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,x12=treat12 running12 treatxrunning12
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,x10=treat10 running10 treatxrunning10
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,yvars=late4gr
+appendix_tables/Table_A6_TimeAllocationSchooling.do,global,yvars=attendance_a  sch_nowrk sch_wrk nosch_wrk
+appendix_tables/Table_A7_HHLaborSupply.do,use,${relabeled_data}/HHsurvey_ad.dta
+appendix_tables/Table_A7_HHLaborSupply.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A7_HHLaborSupply.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men  i.depto#i.year
+appendix_tables/Table_A7_HHLaborSupply.do,global,yvars=a_work a_hrs  
+appendix_tables/Table_A7_HHLaborSupply.do,global,xw14=xx14 xxr14 treatw14 runningw14 treatxrunningw14
+appendix_tables/Table_A7_HHLaborSupply.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men  ccteligible i.depto#i.year
+appendix_tables/Table_A7_HHLaborSupply.do,global,yvars=s_work s_hrs  
+appendix_tables/Table_A8_HHExpenditure.do,use,${relabeled_data}/Expenses/EH_cleaned_expenses.dta
+appendix_tables/Table_A8_HHExpenditure.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A8_HHExpenditure.do,save,`expenses'
+appendix_tables/Table_A8_HHExpenditure.do,merge_using,`expenses'
+appendix_tables/Table_A8_HHExpenditure.do,global,yvars=ihs_expend ihs_expend_al ihs_expend_noal
+appendix_tables/Table_A8_HHExpenditure.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men  i.depto#i.year
+appendix_tables/Table_A8_HHExpenditure.do,global,xw14=xx14 xxr14 treatw14 runningw14 treatxrunningw14
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,use,${relabeled_data}/HHsurvey.dta
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,yvar=works
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,heterogeneity=het_time
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,xvars= post urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men  i.depto#i.year
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,indep=xxwh2 xxw2 `h' 
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,indep_u=xxwh2 xxwu2 xxw2 `h' 
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,xvars= post urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.depto#i.year
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,indep=xxwh1 xxw1 `h'
+appendix_tables/Table_A9_DDisc_HeterogeneityByDrivingTime.do,global,indep_u=xxwh1 xxwu1 xxw1 `h'
+data_cleaning/Child Labor Survey/1-cleaning_database_2008_child.do,use,${raw_dataCS}/ETI_2008/ETI_2008.dta
+data_cleaning/Child Labor Survey/1-cleaning_database_2008_child.do,save,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/2-cleaning_database_2008_household.do,use,${raw_dataCS}/ETI_2008/ETI_2008_household.dta
+data_cleaning/Child Labor Survey/2-cleaning_database_2008_household.do,save,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${raw_dataCS}/ETI_2008/upm_2001-2013.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,use,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/municipality_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/1-bdate_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,save,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,merge_using,${relabeled_dataCS}/municipality_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,merge_using,${relabeled_dataCS}/1-bdate_2008.dta
+data_cleaning/Child Labor Survey/3-calculating_variables_2008.do,merge_using,${relabeled_dataCS}/municipality_2008.dta
+data_cleaning/Child Labor Survey/4-harmonizedvar_child_2008.do,use,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/4-harmonizedvar_child_2008.do,save,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/5-cleaning_database_2016_child.do,use,${raw_dataCS}/ENNA_2016/ENNA_2016.dta
+data_cleaning/Child Labor Survey/5-cleaning_database_2016_child.do,save,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/6-cleaning_database_2016_household.do,use,${raw_dataCS}/ENNA_2016/ENNA_2016_household.dta
+data_cleaning/Child Labor Survey/6-cleaning_database_2016_household.do,use,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/6-cleaning_database_2016_household.do,save,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/6-cleaning_database_2016_household.do,save,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/6-cleaning_database_2016_household.do,merge_using,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${relabeled_data}/HHsurvey.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${raw_dataCS}/ENNA_2016/upm_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,use,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,`datecollection'
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,${relabeled_dataCS}/indbelonging.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,${relabeled_dataCS}/municipality_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,save,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,merge_using,`datecollection'
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,merge_using,${relabeled_dataCS}/indbelonging.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,merge_using,${relabeled_dataCS}/municipality_2016.dta
+data_cleaning/Child Labor Survey/7-calculating_variables_2016.do,global,chores=groceries repair cook dishes laundry babysitting woodwater
+data_cleaning/Child Labor Survey/8-harmonizedvar_child_2016.do,use,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/8-harmonizedvar_child_2016.do,save,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/childworkbo_2008.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/household_2008.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/childworkbo_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/household_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,use,${relabeled_dataCS}/RD_2008.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,`childwork'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,`ch_income'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,`ch_ages'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,${relabeled_dataCS}/RD_2008.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,`childwork'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,`ch_income'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,`ch_ages'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,${relabeled_dataCS}/RD_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,save,${relabeled_dataCS}/RW_child_labor_survey.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,`childwork'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,`ch_income'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,`ch_ages'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,`childwork'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,`ch_income'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,`ch_ages'
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,merge_using,${other_relabeled}/travel_capitales_tomerge.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,append_using,${relabeled_dataCS}/RD_2016.dta
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,hhheadvars=age_  married_ edu_ work_ industry_ male_ pos_worker_  pos_employee_ pos_selfemp_ pos_employer_ pos_other_ wrkhome_ indig_ lang_spa_
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,mothervars=age_  edu_ work_ industry_
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,fathervars=age_ edu_ work_ industry_
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,hhheadvars=age_  married_ edu_ work_ industry_ male_ pos_worker_  pos_employee_ pos_selfemp_ pos_employer_ pos_other_ wrkhome_ indig_ lang_spa_
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,mothervars=age_  edu_ work_ industry_
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,fathervars=age_ edu_ work_ industry_
+data_cleaning/Child Labor Survey/9-Cleaning child survey data.do,global,heterogeneity=het_time
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,use,${raw_data}/2012/EH2012_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,use,${raw_data}/2012/EH2012_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,use,${raw_data}/2012/EH2012_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,use,${raw_data}/2012/EH2012_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,use,${relabeled_data}/Expenses/EH2012_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,save,${relabeled_data}/Expenses/EH2012_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,save,${relabeled_data}/Expenses/EH2012_GastosNoAlimentarios_educ
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,save,${relabeled_data}/Expenses/EH2012_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,save,${relabeled_data}/Expenses/EH2012_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,save,${relabeled_data}/Expenses/EH2012_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,merge_using,${relabeled_data}/Expenses/EH2012_GastosNoAlimentarios_educ
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,merge_using,${relabeled_data}/Expenses/EH2012_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2012.do,merge_using,${relabeled_data}/Expenses/EH2012_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,use,${raw_data}/2013/EH2013_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,use,${raw_data}/2013/EH2013_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,use,${raw_data}/2013/EH2013_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,use,${raw_data}/2013/EH2013_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,use,${relabeled_data}/Expenses/EH2013_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,save,${relabeled_data}/Expenses/EH2013_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,save,${relabeled_data}/Expenses/EH2013_GastosNoAlimentarios_educ
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,save,${relabeled_data}/Expenses/EH2013_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,save,${relabeled_data}/Expenses/EH2013_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,save,${relabeled_data}/Expenses/EH2013_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,merge_using,${relabeled_data}/Expenses/EH2013_GastosNoAlimentarios_educ
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,merge_using,${relabeled_data}/Expenses/EH2013_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2013.do,merge_using,${relabeled_data}/Expenses/EH2013_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,use,${raw_data}/2014/EH2014_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,use,${raw_data}/2014/EH2014_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,use,${raw_data}/2014/EH2014_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,use,${relabeled_data}/Expenses/EH2014_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,save,${relabeled_data}/Expenses/EH2014_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,save,${relabeled_data}/Expenses/EH2014_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,save,${relabeled_data}/Expenses/EH2014_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,save,${relabeled_data}/Expenses/EH2014_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,merge_using,${relabeled_data}/Expenses/EH2014_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2014.do,merge_using,${relabeled_data}/Expenses/EH2014_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,use,${raw_data}/2015/EH2015_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,use,${raw_data}/2015/EH2015_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,use,${raw_data}/2015/EH2015_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,use,${relabeled_data}/Expenses/EH2015_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,save,${relabeled_data}/Expenses/EH2015_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,save,${relabeled_data}/Expenses/EH2015_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,save,${relabeled_data}/Expenses/EH2015_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,save,${relabeled_data}/Expenses/EH2015_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,merge_using,${relabeled_data}/Expenses/EH2015_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2015.do,merge_using,${relabeled_data}/Expenses/EH2015_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,use,${raw_data}/2016/EH2016_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,use,${raw_data}/2016/EH2016_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,use,${raw_data}/2016/EH2016_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,use,${relabeled_data}/Expenses/EH2016_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,save,${relabeled_data}/Expenses/EH2016_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,save,${relabeled_data}/Expenses/EH2016_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,save,${relabeled_data}/Expenses/EH2016_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,save,${relabeled_data}/Expenses/EH2016_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,merge_using,${relabeled_data}/Expenses/EH2016_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2016.do,merge_using,${relabeled_data}/Expenses/EH2016_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,use,${raw_data}/2017/EH2017_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,use,${raw_data}/2017/EH2017_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,use,${raw_data}/2017/EH2017_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,use,${relabeled_data}/Expenses/EH2017_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,save,${relabeled_data}/Expenses/EH2017_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,save,${relabeled_data}/Expenses/EH2017_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,save,${relabeled_data}/Expenses/EH2017_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,save,${relabeled_data}/Expenses/EH2017_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,merge_using,${relabeled_data}/Expenses/EH2017_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2017.do,merge_using,${relabeled_data}/Expenses/EH2017_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,use,${raw_data}/2018/EH2018_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,use,${raw_data}/2018/EH2018_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,use,${raw_data}/2018/EH2018_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,use,${relabeled_data}/Expenses/EH2018_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,save,${relabeled_data}/Expenses/EH2018_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,save,${relabeled_data}/Expenses/EH2018_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,save,${relabeled_data}/Expenses/EH2018_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,save,${relabeled_data}/Expenses/EH2018_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,merge_using,${relabeled_data}/Expenses/EH2018_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2018.do,merge_using,${relabeled_data}/Expenses/EH2018_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,use,${raw_data}/2019/EH2019_GastosAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,use,${raw_data}/2019/EH2019_GastosNoAlimentarios.dta
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,use,${raw_data}/2019/EH2019_equipamiento
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,use,${relabeled_data}/Expenses/EH2019_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,save,${relabeled_data}/Expenses/EH2019_gasto_al
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,save,${relabeled_data}/Expenses/EH2019_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,save,${relabeled_data}/Expenses/EH2019_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,save,${relabeled_data}/Expenses/EH2019_expenses_relabel
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,merge_using,${relabeled_data}/Expenses/EH2019_gasto_noal
+data_cleaning/Household Survey/1. Harmonizing/Expenses/EH_Expenses_2019.do,merge_using,${relabeled_data}/Expenses/EH2019_gasto_durable
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2012.do,use,${raw_data}/2012/EH2012_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2012.do,save,${relabeled_data}/Income/EH2012_Income_relabel
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2013.do,use,${raw_data}/2013/EH2013_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2013.do,save,${relabeled_data}/Income/EH2013_Income_relabel
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2014.do,use,${raw_data}/2014/EH2014_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2014.do,save,${relabeled_data}/Income/EH2014_Income_relabel
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2015.do,use,${raw_data}/2015/EH2015_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2015.do,save,${relabeled_data}/Income/EH2015_Income_relabel
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2016.do,use,${raw_data}/2016/EH2016_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2016.do,save,${relabeled_data}/Income/EH2016_Income_relabel
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2017.do,use,${raw_data}/2017/EH2017_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Income/EH_Income_2017.do,save,${relabeled_data}/Income/EH2017_Income_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2012.do,use,${raw_data}/2012/EH2012_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2012.do,save,${relabeled_data}/Persona/EH2012_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2013.do,use,${raw_data}/2013/EH2013_vivienda.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2013.do,save,${relabeled_data}/Persona/EH2013_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2013.do,merge_using,${raw_data}/2013/EH2013_Persona
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2014.do,use,${raw_data}/2014/EH2014_vivienda.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2014.do,save,${relabeled_data}/Persona/EH2014_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2014.do,merge_using,${raw_data}/2014/EH2014_Persona
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2015.do,use,${raw_data}/2015/EH2015_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2015.do,save,${relabeled_data}/Persona/EH2015_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2016.do,use,${raw_data}/2016/EH2016_vivienda.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2016.do,save,${relabeled_data}/Persona/EH2016_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2016.do,merge_using,${raw_data}/2016/EH2016_Persona
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2017.do,use,${raw_data}/2017/EH2017_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2017.do,save,${relabeled_data}/Persona/EH2017_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2018.do,use,${raw_data}/2018/EH2018_persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2018.do,save,${relabeled_data}/Persona/EH2018_Persona_relabel
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2019.do,use,${raw_data}/2019/EH2019_Persona.dta
+data_cleaning/Household Survey/1. Harmonizing/Persona/EH_Persona_2019.do,save,${relabeled_data}/Persona/EH2019_Persona_relabel
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,use,${relabeled_data}/Persona/EH2012_Persona_relabel
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,save,${relabeled_data}/Persona/EH_compiled_persona
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,merge_using,${raw_data}/upm_2001-2013_relabeled
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,merge_using,${raw_data}/upm_2015-2017_relabeled
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,merge_using,${raw_data}/upm_2016_relabeled
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,append_using,${relabeled_data}/Persona/EH2013_Persona_relabel
+data_cleaning/Household Survey/2. Compiling/2.1.EH_Persona_compiling.do,append_using,${relabeled_data}/Persona/EH`i'_Persona_relabel
+data_cleaning/Household Survey/2. Compiling/2.2.EH_Persona_cleaned.do,use,${relabeled_data}/Persona/EH_compiled_persona
+data_cleaning/Household Survey/2. Compiling/2.2.EH_Persona_cleaned.do,save,${relabeled_data}/Persona/EH_cleaned_persona
+data_cleaning/Household Survey/2. Compiling/2.3.EH_Income_compiling.do,use,${relabeled_data}/Income/EH2012_Income_relabel
+data_cleaning/Household Survey/2. Compiling/2.3.EH_Income_compiling.do,save,${relabeled_data}/Income/EH_compiled_income
+data_cleaning/Household Survey/2. Compiling/2.3.EH_Income_compiling.do,append_using,${relabeled_data}/Income/EH`i'_Income_relabel
+data_cleaning/Household Survey/2. Compiling/2.4.EH_Income_cleaned.do,use,${relabeled_data}/Income/EH_compiled_income
+data_cleaning/Household Survey/2. Compiling/2.4.EH_Income_cleaned.do,save,${relabeled_data}/Income/EH_cleaned_income
+data_cleaning/Household Survey/2. Compiling/2.4.EH_Income_cleaned.do,global,var=
+data_cleaning/Household Survey/2. Compiling/2.4.EH_Income_cleaned.do,global,var= 
+data_cleaning/Household Survey/2. Compiling/2.5.EH_Expenses_compiling.do,use,${relabeled_data}/Expenses/EH2012_expenses_relabel
+data_cleaning/Household Survey/2. Compiling/2.5.EH_Expenses_compiling.do,save,${relabeled_data}/Expenses/EH_compiled_expenses
+data_cleaning/Household Survey/2. Compiling/2.5.EH_Expenses_compiling.do,append_using,${relabeled_data}/Expenses/EH`y'_expenses_relabel
+data_cleaning/Household Survey/2. Compiling/2.6.EH_Expenses_cleaned.do,use,${relabeled_data}/Expenses/EH_compiled_expenses
+data_cleaning/Household Survey/2. Compiling/2.6.EH_Expenses_cleaned.do,save,${relabeled_data}/Expenses/EH_cleaned_expenses
+data_cleaning/Household Survey/3. Preparing for analysis.do,use,${other_raw}/travel_capitales.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,use,${relabeled_data}/Persona/EH_cleaned_persona.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,use,${relabeled_data}/Persona/EH_cleaned_persona.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,use,${relabeled_data}/Persona/EH_cleaned_persona.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,save,${other_relabeled}/travel_capitales_tomerge.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,save,`ch_income'
+data_cleaning/Household Survey/3. Preparing for analysis.do,save,`ch_ages'
+data_cleaning/Household Survey/3. Preparing for analysis.do,save,${relabeled_data}/HHsurvey.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,save,${relabeled_data}/HHsurvey_ad.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,merge_using,`ch_income'
+data_cleaning/Household Survey/3. Preparing for analysis.do,merge_using,`ch_ages'
+data_cleaning/Household Survey/3. Preparing for analysis.do,merge_using,${other_raw}/comassets_chlab_bolivia.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,merge_using,${other_relabeled}/travel_capitales_tomerge.dta
+data_cleaning/Household Survey/3. Preparing for analysis.do,joinby_using,${relabeled_data}/Income/EH_cleaned_income
+data_cleaning/Household Survey/3. Preparing for analysis.do,global,hhheadvars=age_  married_ industry_ pos_worker_  pos_employee_ pos_selfemp_ pos_employer_ pos_other_ wrkhome_ indig_ lang_spa_
+data_cleaning/Household Survey/3. Preparing for analysis.do,global,heterogeneity=het_time het_dist het_ddist
+main_figures/Fig2_DDiscEvtStudy.do,use,${relabeled_data}/HHsurvey.dta
+main_figures/Fig2_DDiscEvtStudy.do,global,yvars=works
+main_figures/Fig2_DDiscEvtStudy.do,global,xvars=urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men i.year i.depto#i.year
+main_figures/Fig3_RDgraphs_14.do,use,${relabeled_data}/HHsurvey.dta
+main_figures/Fig3_RDgraphs_14.do,use,${relabeled_data}/HHsurvey.dta
+main_figures/Fig3_RDgraphs_14.do,use,${relabeled_data}/HHsurvey.dta
+main_figures/Fig3_RDgraphs_14.do,global,outcomes=works
+main_figures/Fig3_RDgraphs_14.do,global,outcomes=works
+main_figures/Fig3_RDgraphs_14.do,global,outcomes=works
+main_figures/Fig4_Distance_ContractsInsurance.do,use,${relabeled_data}/HHsurvey_ad.dta
+main_figures/Fig4_Distance_ContractsInsurance.do,global,vartoplot=wtime
+main_figures/Fig4_Distance_ContractsInsurance.do,global,controls=capital urban age male schooling agriculture_a mining_a manufacture_a construction_a sales_a transportation_a other_a firm_taxes
+main_tables/Table_1_Desc_Statistics.do,use,${relabeled_data}/HHsurvey.dta
+main_tables/Table_1_Desc_Statistics.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+main_tables/Table_1_Desc_Statistics.do,global,yvars=hours_week self_employed wrk_forother wrk_foremployer wrk_family forbidden  not_forbidden   wrk30hrs  attendance 
+main_tables/Table_1_Desc_Statistics.do,global,yvars1=number_workers_w
+main_tables/Table_1_Desc_Statistics.do,global,yvars2=wage_hour_w firm_taxes location_out_fixed_a location_out_mobile_a location_home_a
+main_tables/Table_1_Desc_Statistics.do,global,yvars=risks injury
+main_tables/Table_2_Desc_Statistics_by_employer_type.do,use,${relabeled_data}/HHsurvey.dta
+main_tables/Table_2_Desc_Statistics_by_employer_type.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+main_tables/Table_2_Desc_Statistics_by_employer_type.do,global,yvars0=number_workers_w
+main_tables/Table_2_Desc_Statistics_by_employer_type.do,global,yvars1=wage_hour_w  firm_taxes location_out_fixed_a location_out_mobile_a location_home_a 
+main_tables/Table_2_Desc_Statistics_by_employer_type.do,global,yvars2=agriculture_a  sales_a other_occ
+main_tables/Table_2_Desc_Statistics_by_employer_type.do,global,yvars= risks  injury
+main_tables/Table_3_DDisc_Work.do,use,${relabeled_data}/HHsurvey.dta
+main_tables/Table_3_DDisc_Work.do,global,yvars=works hours_week_a self_employed_a wrk_forother_a forbidden_a not_forbidden_a  lf_participation
+main_tables/Table_3_DDisc_Work.do,global,x14=treat14 running14 treatxrunning14
+main_tables/Table_3_DDisc_Work.do,global,xw14=treatw14 runningw14 treatxrunningw14 
+main_tables/Table_3_DDisc_Work.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,use,${relabeled_data}/HHsurvey.dta
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,heterogeneity=het_time
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,xw14=postx`h' treatw14 runningw14 treatxrunningw14 treatw14x`h'   
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,xvars= post urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men  i.depto#i.year
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,indep=xxwh3 xxw3 `h'
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,heterogeneity=het_dist
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,xw14=postx`h' treatw14 runningw14 treatxrunningw14 treatw14x`h'   
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,xvars= post urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+main_tables/Table_4_DDisc_HeterogeneityDistanceToInspectors.do,global,indep=xxwh3 xxw3 `h'
+main_tables/Table_5_DDisc_RiskInjuryWages.do,use,${relabeled_dataCS}/RW_child_labor_survey.dta
+main_tables/Table_5_DDisc_RiskInjuryWages.do,use,${relabeled_data}/HHsurvey.dta
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,x=xx post treat running treatxrunning
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,xy=xx post treaty runningy treatxrunningy
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,dem=h_edu_head h_male_head h_age_head indig_head c_gender hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men c_area i.c_depto#i.year
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,outcomes=risks_a 
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,outcomes2=injury_a
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,x14=treatw14 runningw14 treatxrunningw14
+main_tables/Table_5_DDisc_RiskInjuryWages.do,global,xvars=post post_rev head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year
+main_tables/Table_6_DDisc_JobLocationFirmSize.do,use,${relabeled_data}/HHsurvey.dta
+main_tables/Table_6_DDisc_JobLocationFirmSize.do,global,yvars1=location_out_fixed_a location_out_mobile_a location_home_a  
+main_tables/Table_6_DDisc_JobLocationFirmSize.do,global,yvars=location_out_fixed_a location_out_mobile_a location_home_a  number_workers_a  
+main_tables/Table_6_DDisc_JobLocationFirmSize.do,global,x14=treat14 running14 treatxrunning14
+main_tables/Table_6_DDisc_JobLocationFirmSize.do,global,xw14=treatw14 runningw14 treatxrunningw14 
+main_tables/Table_6_DDisc_JobLocationFirmSize.do,global,xvars=post post_rev urban head_schooling head_male head_age indig_head male hh_agecat1 hh_agecat2 hh_agecat3 hh_agecat4 adult_women adult_men eligible_gr i.depto#i.year

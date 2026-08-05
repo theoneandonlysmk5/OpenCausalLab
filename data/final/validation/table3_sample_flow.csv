@@ -1,0 +1,8 @@
+step,n,households
+HHsurvey age<21,125368,55020
+years 2012-2019,125368,55020
+nonmissing runningw14 (age-in-months week-before),125265,54989
+bandwidth |runningw14|<=12 (sww14==1),11991,11424
+triangular kernel_triw14 > 0,11991,11424
+nonmissing outcome works,11991,11424
+complete cases (Table 3 controls + works),11991,11424

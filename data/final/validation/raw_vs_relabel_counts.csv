@@ -1,0 +1,9 @@
+year,raw_persona_rows,path,rows,delta_raw_minus_relabel
+2012,31935,data/raw/household/2012/EH2012_Persona.dta,31935,0
+2013,35693,data/raw/household/2013/EH2013_Persona.dta,35693,0
+2014,36618,data/raw/household/2014/eh2014_persona.dta,36618,0
+2015,37364,data/raw/household/2015/EH2015_persona.dta,37364,0
+2016,38549,data/raw/household/2016/eh2016_persona.dta,38549,0
+2017,38201,data/raw/household/2017/EH2017_Persona.dta,38201,0
+2018,37517,data/raw/household/2018/eh2018_persona.dta,37517,0
+2019,39605,data/raw/household/2019/EH2019_Persona.dta,39605,0

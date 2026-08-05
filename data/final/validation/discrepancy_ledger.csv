@@ -1,0 +1,36 @@
+result,paper,python,abs_diff,status,likely_cause,unit
+Table1 pre-law ages10-15 N,7410.0,7410.0,0.0,match,age_dob_m filter 120-180; 4-row residual vs Stata HHsurvey,count
+Table1 pre-law any work mean,0.152,0.1524966261808367,0.0004966261808367067,match,sample / works definition,share
+Table1 subgroup N 10-11,2698.0,2698.0,0.0,match,age_dob_m bins,count
+Table1 subgroup N 12-13,3108.0,3108.0,0.0,match,age_dob_m bins,count
+Table1 subgroup N 14-15,1604.0,1604.0,0.0,match,keep uses <=180 so 14-15 bin is truncated,count
+Table3 estimation N,11991.0,11991.0,0.0,match,kernel boundary / complete-case / one-row merge drift,count
+Table3 pre mean works,0.18,0.18000653381247958,6.53381247958662e-06,match,sample composition,share
+Table3 works xxw3 coef,-0.039,-0.03935076080722177,0.00035076080722176717,match,microdata / WLS numerics / FE collinearity,coef
+Table3 works xxw3 SE,0.017,0.0166577390601267,0.0003422609398733012,match,cluster sandwich / dof / weight scaling,se
+Table3 works xxrw3 coef,-0.0,-0.0004708839483968212,0.0004708839483968212,match,microdata / WLS numerics / FE collinearity,coef
+Table3 works xxrw3 SE,0.019,0.019334684123369982,0.00033468412336998266,match,cluster sandwich / dof / weight scaling,se
+Table3 hours_week_a xxw3 coef,-0.969,-0.9690538717319996,5.387173199966622e-05,match,microdata / WLS numerics / FE collinearity,coef
+Table3 hours_week_a xxw3 SE,0.526,0.5263808340168069,0.0003808340168068858,match,cluster sandwich / dof / weight scaling,se
+Table3 hours_week_a xxrw3 coef,0.508,0.5076689421170689,0.00033105788293108507,match,microdata / WLS numerics / FE collinearity,coef
+Table3 hours_week_a xxrw3 SE,0.562,0.5625172020063316,0.0005172020063315408,near,cluster sandwich / dof / weight scaling,se
+Table3 self_employed_a xxw3 coef,-0.002,-0.0019416234173082981,5.837658269170192e-05,match,microdata / WLS numerics / FE collinearity,coef
+Table3 self_employed_a xxw3 SE,0.004,0.003528976028409575,0.00047102397159042497,match,cluster sandwich / dof / weight scaling,se
+Table3 self_employed_a xxrw3 coef,-0.0,-0.0004482429498242821,0.0004482429498242821,match,microdata / WLS numerics / FE collinearity,coef
+Table3 self_employed_a xxrw3 SE,0.005,0.0048300871663882455,0.00016991283361175464,match,cluster sandwich / dof / weight scaling,se
+Table3 wrk_forother_a xxw3 coef,-0.037,-0.03740913738991347,0.0004091373899134734,match,microdata / WLS numerics / FE collinearity,coef
+Table3 wrk_forother_a xxw3 SE,0.017,0.016633009805738494,0.00036699019426150725,match,cluster sandwich / dof / weight scaling,se
+Table3 wrk_forother_a xxrw3 coef,-0.0,-2.2640998572544084e-05,2.2640998572544084e-05,match,microdata / WLS numerics / FE collinearity,coef
+Table3 wrk_forother_a xxrw3 SE,0.019,0.019484411914696072,0.0004844119146960729,match,cluster sandwich / dof / weight scaling,se
+Table3 forbidden_a xxw3 coef,0.004,0.0036622104570680518,0.00033778954293194833,match,microdata / WLS numerics / FE collinearity,coef
+Table3 forbidden_a xxw3 SE,0.006,0.006057486450226117,5.748645022611663e-05,match,cluster sandwich / dof / weight scaling,se
+Table3 forbidden_a xxrw3 coef,0.018,0.01825404597219319,0.0002540459721931919,match,microdata / WLS numerics / FE collinearity,coef
+Table3 forbidden_a xxrw3 SE,0.012,0.012393587162788721,0.0003935871627887208,match,cluster sandwich / dof / weight scaling,se
+Table3 not_forbidden_a xxw3 coef,-0.043,-0.043012971264289816,1.2971264289819706e-05,match,microdata / WLS numerics / FE collinearity,coef
+Table3 not_forbidden_a xxw3 SE,0.015,0.01463165908600256,0.0003683409139974402,match,cluster sandwich / dof / weight scaling,se
+Table3 not_forbidden_a xxrw3 coef,-0.019,-0.018724929920590012,0.0002750700794099878,match,microdata / WLS numerics / FE collinearity,coef
+Table3 not_forbidden_a xxrw3 SE,0.018,0.018039108966825316,3.9108966825317226e-05,match,cluster sandwich / dof / weight scaling,se
+Table3 lf_participation xxw3 coef,-0.04,-0.040306301907562944,0.00030630190756294334,match,microdata / WLS numerics / FE collinearity,coef
+Table3 lf_participation xxw3 SE,0.017,0.016527350849712883,0.00047264915028711815,match,cluster sandwich / dof / weight scaling,se
+Table3 lf_participation xxrw3 coef,0.002,0.001771611380964347,0.00022838861903565297,match,microdata / WLS numerics / FE collinearity,coef
+Table3 lf_participation xxrw3 SE,0.019,0.01899069751382377,9.302486176230446e-06,match,cluster sandwich / dof / weight scaling,se

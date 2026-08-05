@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+../.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+*.egg-info/
+.coverage
+htmlcov/
+
+# Survey microdata and large intermediates (rebuild from Dataverse)
+data/raw/**
+!data/raw/.gitkeep
+data/intermediate/**
+!data/intermediate/.gitkeep
+data/final/*.parquet
+data/final/**/*.parquet
+data/final/tables.zip
+
+# Keep small table/validation CSV outputs in git
+!data/final/tables/
+!data/final/tables/**
+!data/final/validation/
+!data/final/validation/**
+
+*.dta
+*.zip
+*.pdf

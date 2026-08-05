@@ -1,0 +1,11 @@
+step,n,note
+0_years_2012_2019,125368,
+1_sww14_18,18235,abs(runningw14)<=18
+2_kernel_gt0,18235,triangular kernel > 0
+3_wage_hour_w_nonmiss,715,bottleneck → Python N=715
+4_wage_gt0,715,no zero/neg in practice; do-file uses log(w+1)
+5_log_finite,715,
+6_hours_nonmiss,715,
+7_complete_controls,715,
+8_fe_cluster_ids,715,paper N=712 (−3)
+9_nw_nonmiss_NOT_in_reg,613,Stata Mean uses number_workers_w; not a regressor

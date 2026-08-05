@@ -1,0 +1,39 @@
+dataset,stage,produced_by,consumed_by,purpose,in_dataverse_package,pipeline
+EH{YYYY}_Persona.dta,raw,INE survey release,EH_Persona_YYYY.do; EH_Income_YYYY.do,Person demographics and labor raw,yes,household
+EH{YYYY}_vivienda.dta,raw,INE survey release,EH_Persona_YYYY.do (2013/2014/2016),Dwelling attributes merged into persona,yes,household
+EH{YYYY}_GastosAlimentarios.dta,raw,INE survey release,EH_Expenses_YYYY.do,Food expenditure raw,yes,household
+EH{YYYY}_GastosNoAlimentarios.dta,raw,INE survey release,EH_Expenses_YYYY.do,Non-food expenditure raw,yes,household
+EH{YYYY}_Equipamiento.dta,raw,INE survey release,EH_Expenses_YYYY.do,Durable goods / equipment raw,yes,household
+upm_2001-2013_relabeled.dta,raw,Authors/package,2.1.EH_Persona_compiling.do,UPM to municipality crosswalk,yes,household
+upm_2015-2017_relabeled.dta,raw,Authors/package,2.1.EH_Persona_compiling.do,UPM to municipality crosswalk,yes,household
+upm_2016_relabeled.dta,raw,Authors/package,2.1.EH_Persona_compiling.do,UPM to municipality crosswalk,yes,household
+travel_capitales.dta,raw,Authors/package,3. Preparing for analysis.do,Distance and travel time to labor offices,yes,auxiliar
+comassets_chlab_bolivia.dta,raw,Authors/package,3. Preparing for analysis.do,Municipality assets and connectivity,yes,auxiliar
+baselineCL.dta,raw,Authors/package,Table_A4; Table_A10,2012 baseline child labor rates (table-time merge),yes,auxiliar
+articledata.dta,raw,Authors/package,Figure_A2_Articles.do,Media coverage series,yes,auxiliar
+EH{YYYY}_Persona_relabel,intermediate,EH_Persona_YYYY.do,2.1.EH_Persona_compiling.do,Year-harmonized person file,no,household
+EH{YYYY}_Income_relabel,intermediate,EH_Income_YYYY.do,2.3.EH_Income_compiling.do,Year-harmonized income file (2012-2017 only),no,household
+EH{YYYY}_expenses_relabel,intermediate,EH_Expenses_YYYY.do,2.5.EH_Expenses_compiling.do,Year-harmonized expenses file,no,household
+EH_compiled_persona,intermediate,2.1.EH_Persona_compiling.do,2.2.EH_Persona_cleaned.do,Stacked persona panel with UPM merges,no,household
+EH_compiled_income,intermediate,2.3.EH_Income_compiling.do,2.4.EH_Income_cleaned.do,Stacked income panel,no,household
+EH_compiled_expenses,intermediate,2.5.EH_Expenses_compiling.do,2.6.EH_Expenses_cleaned.do,Stacked expenses panel,no,household
+EH_cleaned_persona,intermediate,2.2.EH_Persona_cleaned.do,3. Preparing for analysis.do,Clean person-level analysis spine,no,household
+EH_cleaned_income,intermediate,2.4.EH_Income_cleaned.do,3. Preparing for analysis.do,Clean income for hh aggregates,no,household
+EH_cleaned_expenses,intermediate,2.6.EH_Expenses_cleaned.do,Table_A8_HHExpenditure.do,Clean expenses (not in HHsurvey core merge),no,household
+travel_capitales_tomerge.dta,intermediate,3. Preparing for analysis.do,HHsurvey build; CS script 9,Travel vars with medians and office flags,no,auxiliar
+tempfile ch_income,intermediate,3. Preparing for analysis.do,HHsurvey build,HH income aggregates and quintiles,no,household
+tempfile ch_ages,intermediate,3. Preparing for analysis.do,HHsurvey build,Counts of children by age category,no,household
+HHsurvey.dta,final,3. Preparing for analysis.do,Main tables/figures; CS script 7,Main analysis dataset with DiDisc design vars,no,household
+HHsurvey_ad.dta,final,3. Preparing for analysis.do,Select adult/appendix analyses,Adult/alternate analysis cut,no,household
+ETI_2008.dta,raw,INE/ILO package,1-cleaning_database_2008_child.do,2008 child labor child questionnaire,yes,child_labor
+ETI_2008_household.dta,raw,INE/ILO package,2-cleaning_database_2008_household.do,2008 child labor household questionnaire,yes,child_labor
+ENNA_2016.dta,raw,INE package,5-cleaning_database_2016_child.do,2016 child labor child questionnaire,yes,child_labor
+ENNA_2016_household.dta,raw,INE package,6-cleaning_database_2016_household.do,2016 child labor household questionnaire,yes,child_labor
+upm_2001-2013.dta (CS),raw,Authors/package,3-calculating_variables_2008.do,UPM crosswalk for 2008 CS,yes,child_labor
+upm_2016.dta (CS),raw,Authors/package,7-calculating_variables_2016.do,UPM crosswalk for 2016 CS,yes,child_labor
+childworkbo_2008.dta,intermediate,CS scripts 1-4,9-Cleaning child survey data.do,Harmonized 2008 child file,no,child_labor
+household_2008.dta,intermediate,CS scripts 2-3,9-Cleaning child survey data.do,Harmonized 2008 household file,no,child_labor
+childworkbo_2016.dta,intermediate,CS scripts 5-8,9-Cleaning child survey data.do,Harmonized 2016 child file,no,child_labor
+household_2016.dta,intermediate,CS scripts 6-7,9-Cleaning child survey data.do,Harmonized 2016 household file,no,child_labor
+RD_2008.dta / RD_2016.dta,intermediate,9-Cleaning child survey data.do,append in same script,Year-specific RD analysis extracts,no,child_labor
+RW_child_labor_survey.dta,final,9-Cleaning child survey data.do,Risk/injury tables and figures,Stacked child labor analysis dataset,no,child_labor

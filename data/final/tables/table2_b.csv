@@ -1,0 +1,2 @@
+use_weights,risks_fam,risks_ext,n_risks_fam,n_risks_ext,pval_risks,injury_fam,injury_ext,n_injury_fam,n_injury_ext,pval_injury,n_fam,n_ext
+True,0.5361926074430796,0.6793955773297978,1741,186,0.0003579624631507159,0.3142188051669652,0.4471221900142572,1738,185,0.0004393701229743702,1741,186
