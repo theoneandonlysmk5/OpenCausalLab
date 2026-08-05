@@ -1,4 +1,8 @@
-# Validation protocol (Stata as formal specification)
+# Validation protocol (authors’ `.do` files as formal specification)
+
+This protocol is intended for contributors extending the Python implementation. It specifies the **order** in which validation should be performed and the **criteria** used before statistical comparisons are considered trustworthy.
+
+**This protocol should be executed before any causal-ML extension.**
 
 Validate **stage by stage**. Do not start from final regression coefficients.
 
@@ -46,6 +50,7 @@ Key artifacts:
 | `bandwidth_sensitivity_table3_works.csv` | BW robustness for Table 3 works |
 | `sample_table{3,4}.parquet` | Exported regression samples (`data/final/samples/`) |
 
+Status labels (**Exact** / matches manuscript values / **Near** / **Open**) are defined in [`replication_scope.md`](replication_scope.md).  
 Full confidence write-up: [`verification.md`](verification.md).
 
 ## Golden values

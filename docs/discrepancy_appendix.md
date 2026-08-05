@@ -2,22 +2,25 @@
 
 **Release tag:** `v0.1.0-python-replication`  
 **Manuscript:** Expanding Worker Rights to Children (JDE R1 / July 18, 2024 tables)  
-**Pipeline:** OpenCausalLab (no Stata runtime)
+**Pipeline:** OpenCausalLab (independent Python implementation)
 
 ## Status legend
 
-| Status | Meaning |
-|--------|---------|
-| **Exact** | Same underlying value or displayed precision |
-| **Near** | Small implementation difference; sign, interpretation, and inference unchanged |
-| **Explained** | Difference caused by RNG, software semantics, or paper labeling |
-| **Open** | Cause not yet identified |
+| Status | Definition |
+|--------|------------|
+| **Exact** | Numerically identical within floating-point tolerance (counts, N, etc.). |
+| **Published precision** | Rounds to the manuscript value at reported decimals; elsewhere: **matches manuscript values**. |
+| **Near** | Small documented difference; sign, interpretation, and inference unchanged. |
+| **Explained** | Mechanism identified (RNG, labeling, software semantics); may still be Near. |
+| **Open** | Difference not yet fully explained. |
 
-## Completion standard
+Shared vocabulary: [`replication_scope.md`](replication_scope.md).
+
+## Replication acceptance criteria
 
 Replication phase is **complete** when:
 
-1. Table 3 remains exact.
+1. Table 3 matches manuscript values (N Exact).
 2. Every remaining discrepancy has a reproducible explanation *or* is documented as Open with an audit trail.
 3. No mismatch changes a sign, substantive interpretation, or inference.
 4. The Python pipeline is deterministic and documented.
@@ -31,7 +34,7 @@ Replication phase is **complete** when:
 | 1C | Risk/injury (CL) | Exact / Near | Means & Ns match displayed precision after `indig_head` fill |
 | 2A | By employer (HH) | Exact | `ttest` equal-variance (Stata default), not Welch |
 | 2B | By employer (CL) | Exact / Near | Follows Table 1C sample |
-| 3 | Main DiDisc | Exact | N=11,991; coefficients/SEs/means to displayed precision |
+| 3 | Main DiDisc | Matches manuscript (N Exact) | N=11,991; coefficients/SEs/means to displayed precision |
 | 4A | Driving-time het | Exact | Stata `gen median=r(p50)` float32 puts median-tie Aiquile in *far* |
 | 4B | Direct-distance het | Exact | |
 | 5 cols 1–4 | Risk/injury DiDisc (CL) | Near / Explained | Means now Exact (Stata `sum if year==2008 & ss`); working Ns Exact; all-child N −9/−10; injury-work coef −0.016 vs −0.015 displayed |
