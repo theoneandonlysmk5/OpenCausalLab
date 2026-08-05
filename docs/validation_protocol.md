@@ -40,6 +40,13 @@ Key artifacts:
 | `table3_regression_ladder.csv` | Incremental specs M1–M6 |
 | `discrepancy_ledger.csv` | Paper vs Python with status |
 | `table3_variable_audit.csv` | Per-variable moments |
+| `spec_equivalence_table3.csv` | Item-by-item Stata vs Python regression design |
+| `merge_audit.csv` | `_merge`-style left/right/matched counts |
+| `esample_sizes.csv` | Full df vs e(sample) N |
+| `bandwidth_sensitivity_table3_works.csv` | BW robustness for Table 3 works |
+| `sample_table{3,4}.parquet` | Exported regression samples (`data/final/samples/`) |
+
+Full confidence write-up: [`verification.md`](verification.md).
 
 ## Golden values
 

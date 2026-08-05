@@ -57,9 +57,13 @@ HHsurvey-based panels are implemented. Child Labor Survey panels (Table 1C, 2B, 
 ```bash
 python scripts/run_validation_audit.py
 # → data/final/validation/discrepancy_ledger.csv
+
+python scripts/run_verification.py
+# → spec / merge / e(sample) / bandwidth audits + sample_table{3,4}.parquet
 ```
 
-See [`docs/validation_protocol.md`](docs/validation_protocol.md). Stata `.do` files are the formal specification.
+**Replication confidence argument:** [`docs/verification.md`](docs/verification.md) (code map, data audits, statistical checks, limitations).  
+Protocol: [`docs/validation_protocol.md`](docs/validation_protocol.md). Stata `.do` files are the formal specification.
 
 ## Subgroup DiDisc + local CATE
 

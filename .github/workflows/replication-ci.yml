@@ -1,0 +1,61 @@
+name: replication-ci
+
+# Tier-4 sketch: pytest validates design equivalence when microdata exist;
+# always checks committed ledger / verification CSVs for regressions.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit-and-ledger:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scipy statsmodels pyarrow pytest
+
+      - name: Pytest (skips data-heavy tests if parquet absent)
+        run: |
+          pytest tests/test_stata_round.py tests/test_table3.py tests/test_verification.py -q --tb=short
+
+      - name: Ledger status gate (committed CSV)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          p = Path("data/final/tables/main_tables_ledger.csv")
+          assert p.exists(), "main_tables_ledger.csv missing from repo"
+          led = pd.read_csv(p)
+          open_rows = led.loc[led["status"].astype(str).str.lower() == "open"]
+          assert open_rows.empty, open_rows.to_dict("records")
+          t3 = led.loc[led["result"] == "Table3 works xxw3"].iloc[0]
+          assert abs(float(t3["python"]) + 0.039351) < 1e-4
+          print("ledger gate PASS", len(led), "rows")
+          PY
+
+      - name: Spec equivalence gate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          p = Path("data/final/validation/spec_equivalence_table3.csv")
+          assert p.exists(), "run scripts/run_verification.py and commit CSVs"
+          spec = pd.read_csv(p)
+          bad = spec.loc[~spec["match"].astype(str).str.lower().isin(["true", "1"])]
+          assert bad.empty, bad.to_dict("records")
+          print("spec equivalence PASS", len(spec), "items")
+          PY

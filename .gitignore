@@ -24,6 +24,9 @@ data/final/tables.zip
 !data/final/tables/**
 !data/final/validation/
 !data/final/validation/**
+!data/final/samples/
+!data/final/samples/.gitkeep
+# e(sample) parquets are large; rebuild with scripts/run_verification.py
 
 *.dta
 *.zip

@@ -39,13 +39,22 @@ def test_pre_mean_works(results: pd.DataFrame):
 
 
 def test_xxw3_near_published(results: pd.DataFrame):
-    """Allow small gaps from Stata WLS / microdata construction without a license."""
+    """Printed manuscript precision (and unrounded works anchor)."""
     cmp = compare_to_published(results)
     for _, row in cmp.loc[cmp["term"] == "xxw3"].iterrows():
-        # Hours is the noisiest continuous outcome; others should be tighter.
-        tol = 0.12 if row["outcome"] == "hours_week_a" else 0.01
+        # Printed cells round to three decimals; raw gap must stay tiny.
+        tol = 0.001 if row["outcome"] != "hours_week_a" else 0.002
         assert abs(row["delta_coef"]) <= tol, row.to_dict()
-        assert abs(row["delta_se"]) <= 0.03, row.to_dict()
+        assert abs(row["delta_se"]) <= 0.002, row.to_dict()
+
+
+def test_table3_any_work_unrounded(results: pd.DataFrame):
+    coef = float(
+        results.loc[
+            (results["outcome"] == "works") & (results["term"] == "xxw3"), "coef"
+        ].iloc[0]
+    )
+    assert abs(coef + 0.039351) < 1e-4
 
 
 def test_sign_and_significance_works(results: pd.DataFrame):

@@ -1,0 +1,16 @@
+item,stata,python,match
+Outcome set,works hours_week_a self_employed_a wrk_forother_a forbidden_a not_forbidden_a lf_participation,same YVARS list,True
+Years,2012–2019,"year ∈ [2012, 2019]",True
+Treatment interaction,xxw3 = post × treatw14,xxw3,True
+Reversal interaction,xxrw3 = post_rev × treatw14,xxrw3,True
+Running variable,runningw14 (age week-before − 168 months),runningw14,True
+Treatment indicator,treatw14 = 1{runningw14 < 0} at age-14 cutoff,treatw14,True
+Spline,treatxrunningw14,treatxrunningw14,True
+Kernel,triangular,kernel_triw14 = (1−|r|/bw)·1{|r|≤bw},True
+Bandwidth,12 months (table notes),bw=12; kernel_triw14,True
+Analytic weights,[aw=kernel_triw14],statsmodels WLS weights=kernel_triw14,True
+Survey factor weights,not used in Table 3,not used,True
+Fixed effects,i.depto#i.year,C(depto_year),True
+Cluster,vce(cluster age_mo_year),cov_type=cluster groups=age_mo_year,True
+Controls,post post_rev urban head_* indig_head male hh_agecat* adults eligible_gr,CONTROLS list matches do-file,True
+Pre-law mean,sum y if e(sample)&pre==1,mean on regression sample ∩ pre,True

@@ -1,0 +1,10 @@
+item,stata,python,match
+Outcome,works,works,True
+Years,2012–2016,"year ∈ [2012, 2016]",True
+Moderator Panel A,het_time (ttime > float32(p50)),same (Stata float median),True
+Moderator Panel B,het_dist,het_dist,True
+Interactions,xxwh3 xxw3 h postxh treatw14 runningw14 treatxrunningw14 treatw14xh,same terms,True
+Eligible_gr,Panel A: no; Panel B: yes,include_eligible flag,True
+Kernel / BW,"[aw=kernel_triw14], bw 12",same,True
+FE / cluster,i.depto#i.year / age_mo_year,same,True
+nlcom,far=_b[xxwh3]+_b[xxw3]; near=_b[xxw3],nlcom_sum,True
