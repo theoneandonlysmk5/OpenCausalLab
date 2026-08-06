@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 from ..persona.common import read_persona
-from core.stata_semantics.stata_utils import replace_where, to_numeric
+from opencausallab.stata_semantics.stata_utils import replace_where, to_numeric
 from .common import (
     build_labor_totals,
     build_remittances_block,

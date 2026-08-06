@@ -6,10 +6,9 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import pyreadstat
 
 from .. import paths
-from core.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
+from opencausallab.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
 from .common import (
     _resolve_col,
     binary_01,
@@ -104,6 +103,7 @@ def _load_merged_2016(
     persona_path = persona_path or paths.raw_household_persona(2016)
     vivienda_path = vivienda_path or paths.raw_household_vivienda(2016)
 
+    import pyreadstat
     viv, _ = pyreadstat.read_dta(str(vivienda_path))
     viv = viv[["folio", "s01a_00a", "s01a_00b", "s01a_00c"]].copy()
     viv = viv.rename(

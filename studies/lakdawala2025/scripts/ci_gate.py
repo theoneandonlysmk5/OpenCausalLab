@@ -21,7 +21,7 @@ REPO_ROOT = CASE_ROOT.parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 sys.path.insert(0, str(CASE_ROOT))
 
-from core.utils.logutil import setup_logging  # noqa: E402
+from opencausallab.utils.logutil import setup_logging  # noqa: E402
 
 log = setup_logging("ci_gate")
 

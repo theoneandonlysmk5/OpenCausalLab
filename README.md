@@ -1,14 +1,15 @@
 # OpenCausalLab
 
-![Replication: Table 3 PASS](https://img.shields.io/badge/Replication-Table%203%20PASS-brightgreen)
 [![replication-ci](https://github.com/theoneandonlysmk5/OpenCausalLab/actions/workflows/replication-ci.yml/badge.svg)](https://github.com/theoneandonlysmk5/OpenCausalLab/actions/workflows/replication-ci.yml)
 
-**OpenCausalLab** is an open framework for independently verifying empirical economics research in Python.
+**OpenCausalLab** is an open framework for independently verifying empirical economics research through transparent Python implementations.
 
 ```text
-core/                  reusable library
-studies/<paper>/  everything specific to one paper
+opencausallab/                  reusable library (experimental internal API before v1.0)
+studies/<paper>/       everything specific to one paper
 ```
+
+This repository does **not** redistribute survey microdata. Place Dataverse extracts locally under each study’s `data/raw/` (gitignored). Prefer release archives via `git archive`, not a working-tree ZIP.
 
 ## First case study
 
@@ -16,18 +17,26 @@ studies/<paper>/  everything specific to one paper
 
 | Table 3 (main result) | Status |
 |-----------------------|--------|
-| Design / sample / coefs / SEs / inference | Pass (N = 11,991 Exact; matches manuscript values) |
+| Design / sample / coefs / SEs / inference | Matches manuscript (N = 11,991 Exact) |
 
 Remaining Near/Open items (wage N, firm size) are documented in the case study — Table 3 success is not a claim that every cell matches.
 
 ## Quick start (Lakdawala)
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -e '.[replication,dev]'
+# optional extensions: python -m pip install -e '.[causal-ml]'
 cd studies/lakdawala2025
-# place Dataverse raw .dta under data/raw/ …
+python scripts/check_data_layout.py   # after placing Dataverse raw files
+# with HHsurvey.parquet already built (or after ETL):
 python scripts/run_table3.py
 python scripts/ci_gate.py
+```
+
+Public tests (no microdata):
+
+```bash
+pytest -q -m "not microdata and not causal_ml"
 ```
 
 ## Framework docs
@@ -35,8 +44,9 @@ python scripts/ci_gate.py
 | Doc | Topic |
 |-----|-------|
 | [`docs/philosophy.md`](docs/philosophy.md) | Design equivalence vs software identity |
-| [`docs/architecture.md`](docs/architecture.md) | `core/` vs `studies/` |
+| [`docs/architecture.md`](docs/architecture.md) | `opencausallab/` vs `studies/` |
 | [`docs/roadmap.md`](docs/roadmap.md) | What’s next |
+| [`SOFTWARE.md`](SOFTWARE.md) | Short software map |
 
 ## Layout
 
@@ -48,25 +58,10 @@ OpenCausalLab/
 ├── pyproject.toml
 ├── requirements.txt
 ├── docs/
-│   ├── philosophy.md
-│   ├── roadmap.md
-│   └── architecture.md
-├── core/
-│   ├── validation/
-│   ├── utils/
-│   ├── stata_semantics/
-│   ├── reporting/
-│   └── causal/
+├── tests/opencausallab/            # reusable library unit tests
+├── opencausallab/
 ├── studies/
 │   └── lakdawala2025/
-│       ├── README.md
-│       ├── data/
-│       ├── docs/
-│       ├── src/
-│       ├── scripts/
-│       ├── tests/
-│       ├── notebooks/
-│       └── vendor/
 └── examples/
 ```
 
@@ -78,7 +73,7 @@ All econometric design decisions, validation methodology, discrepancy analysis, 
 
 ## License
 
-Code and documentation: [MIT](LICENSE). Microdata and vendor `.do` files retain their original terms — see the case-study README.
+Code and documentation: [MIT](LICENSE). Microdata and vendor `.do` files retain their original terms — see [`studies/lakdawala2025/vendor/README.md`](studies/lakdawala2025/vendor/README.md). The MIT license does **not** cover `vendor/` or survey data.
 
 ## Citation
 

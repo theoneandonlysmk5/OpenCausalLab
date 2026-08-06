@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 from .. import paths
-from core.stata_semantics.stata_utils import inlist, inrange, recode_map, replace_where, stata_str, to_numeric
+from opencausallab.stata_semantics.stata_utils import inlist, inrange, recode_map, replace_where, stata_str, to_numeric
 from .common import read_persona, select_keep
 
 PERSONA_2012_KEEP = [

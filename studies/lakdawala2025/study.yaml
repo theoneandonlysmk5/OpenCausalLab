@@ -1,0 +1,21 @@
+study_id: lakdawala2025
+paper_title: The Effects of Expanding Worker Rights to Children
+authors:
+  - Lakdawala
+  - Martínez Heredia
+  - Vera-Cossio
+data_doi: 10.7910/DVN/WJIQ6G
+design: difference-in-discontinuities
+status:
+  primary_result: matches_manuscript
+  primary_table: Table 3
+  open_items:
+    - Table 6 firm size
+  near_items:
+    - Table 5 wage N
+paths:
+  docs: docs/
+  vendor: vendor/stata_dofiles/
+  entrypoints:
+    table3: scripts/run_table3.py
+    ci_gate: scripts/ci_gate.py

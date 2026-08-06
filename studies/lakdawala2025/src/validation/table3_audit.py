@@ -8,9 +8,9 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 from ..table3 import CONTROLS, YVARS, prepare_table3_sample, run_table3
-from .audit import (
+from opencausallab.validation.audit import (
     GOLDEN,
     SampleFlow,
     append_ledger,

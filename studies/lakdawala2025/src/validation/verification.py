@@ -14,8 +14,8 @@ import numpy as np
 import pandas as pd
 
 from .. import paths
-from core.causal.didisc_reg import depto_year, wls_cluster
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.causal.didisc_reg import depto_year, wls_cluster
+from opencausallab.stata_semantics.stata_utils import to_numeric
 from ..table3 import (
     CONTROLS,
     PUBLISHED_TABLE3,

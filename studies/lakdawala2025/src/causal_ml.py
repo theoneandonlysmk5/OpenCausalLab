@@ -17,11 +17,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from econml.grf import CausalForest
 from sklearn.model_selection import KFold
 
 from . import paths
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 from .table3 import CONTROLS, prepare_table3_sample
 
 # Predetermined / design moderators for the forest (variable plan USE).
@@ -128,12 +127,14 @@ def fit_honest_causal_forest(
     features: list[str] | None = None,
     random_state: int = 42,
     n_estimators: int = 500,
-) -> tuple[CausalForest, pd.DataFrame, np.ndarray]:
+):
     """
     Honest GRF of residualized Y on residualized T, X = predetermined moderators.
 
     Drops rows with missing forest features (e.g. distance after 2016).
     """
+    from econml.grf import CausalForest
+
     features = features or [f for f in FOREST_FEATURES if f in scored.columns]
     use = scored.dropna(subset=features + ["y_resid", "t_resid", "kernel_triw14"]).copy()
     X = use[features].to_numpy(dtype=float)

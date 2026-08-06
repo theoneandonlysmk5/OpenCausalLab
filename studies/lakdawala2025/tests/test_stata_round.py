@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from core.stata_semantics.stata_utils import stata_round
+from opencausallab.stata_semantics.stata_utils import stata_round
 
 
 def test_stata_round_half_away_from_zero():

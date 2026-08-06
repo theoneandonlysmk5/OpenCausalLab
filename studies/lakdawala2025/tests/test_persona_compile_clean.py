@@ -5,6 +5,9 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
+import pytest
+
+pytestmark = pytest.mark.microdata
 
 
 def test_compile_clean_outputs_if_present():

@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from core.stata_semantics.stata_utils import inlist, inrange, replace_where, to_numeric
+from opencausallab.stata_semantics.stata_utils import inlist, inrange, replace_where, to_numeric
 from .common import (
     binary_01,
     copy_standard_fields,

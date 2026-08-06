@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 from .. import paths
-from core.stata_semantics.stata_utils import inrange, replace_where, stata_str, to_numeric, winsor_high
+from opencausallab.stata_semantics.stata_utils import inrange, replace_where, stata_str, to_numeric, winsor_high
 from .common import (
     IDENT_KEEP,
     INCOMES_KEEP,

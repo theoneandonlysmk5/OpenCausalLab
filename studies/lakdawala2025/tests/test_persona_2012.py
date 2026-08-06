@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
+import pytest
 
-from core.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
+from opencausallab.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
 
 
 def test_stata_str_integers():
@@ -46,6 +47,7 @@ def test_work_definition_order():
     assert work.tolist() == [1.0, 1.0, 1.0, 0.0]
 
 
+@pytest.mark.microdata
 def test_persona_all_years_if_raw_present():
     from pathlib import Path
 

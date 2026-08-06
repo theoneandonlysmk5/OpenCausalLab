@@ -10,11 +10,22 @@ for tagged releases (`VERSION`).
 
 ### Changed
 
-- **Major layout:** reusable library in `core/`; Lakdawala paper fully under `studies/lakdawala2025/` (data, src, scripts, tests, docs, vendor)
+- **Major layout:** reusable library in `opencausallab/`; Lakdawala paper fully under `studies/lakdawala2025/` (data, src, scripts, tests, docs, vendor)
 - Framework docs at `docs/{philosophy,architecture,roadmap}.md`; root README is framework-first
+- `pyproject.toml` declares runtime deps + optional extras (`replication`, `causal-ml`, `dev`); `requires-python = ">=3.10,<3.13"`
+- Public CI matrix (3.10–3.12) runs `pytest -m "not microdata and not causal_ml"`; optional microdata job
+- Stop tracking row-level validation dumps (`table5_wage_obs_flags.csv`, `table6_firm_size_contributions.csv`)
+
+### Fixed
+
+- `table3_audit` import after move to `opencausallab.validation.audit`
+- Package rename: `core` → `opencausallab` (import path matches distribution name)
+- Lazy-import `pyreadstat` / `econml` so test collection works without optional stacks
 
 ### Added
 
+- `tests/opencausallab/` unit tests for reusable library
+- `studies/lakdawala2025/study.yaml`, `scripts/check_data_layout.py`
 - `examples/.gitkeep`
 - Case-study `tests/conftest.py` for `PYTHONPATH`
 - `SOFTWARE.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS`, `CHANGELOG.md`

@@ -8,7 +8,7 @@ import pandas as pd
 import pytest
 
 from src import paths
-from core.validation.audit import GOLDEN
+from opencausallab.validation.audit import GOLDEN
 from src.validation.table3_audit import (
     build_table3_ledger,
     table3_sample_flow,
@@ -16,7 +16,10 @@ from src.validation.table3_audit import (
 )
 
 HH = paths.FINAL / "HHsurvey.parquet"
-pytestmark = pytest.mark.skipif(not HH.exists(), reason="HHsurvey missing")
+pytestmark = [
+    pytest.mark.microdata,
+    pytest.mark.skipif(not HH.exists(), reason="HHsurvey missing"),
+]
 
 
 @pytest.fixture(scope="module")

@@ -1,6 +1,6 @@
 # Case studies
 
-Each subdirectory is one verified paper. Shared code lives in [`../core/`](../core/).
+Each subdirectory is one verified paper. Shared code lives in [`../opencausallab/`](../opencausallab/).
 
 | Case study | Paper |
 |------------|-------|

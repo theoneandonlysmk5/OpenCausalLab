@@ -2,6 +2,23 @@
 
 The `vendor/` tree holds **extracted copies of the authors’ Stata `.do` files** from the Harvard Dataverse replication package for Lakdawala, Martínez Heredia, and Vera-Cossio.
 
+| Field | Value |
+|-------|-------|
+| Source | Harvard Dataverse replication package |
+| Authors | Lakdawala, Martínez Heredia, Vera-Cossio |
+| Dataverse DOI | [10.7910/DVN/WJIQ6G](https://doi.org/10.7910/DVN/WJIQ6G) |
+| Included content | Authors’ `.do` files under `stata_dofiles/` (specification reference) |
+
+## License / terms
+
+- **OpenCausalLab’s MIT license does not apply to files under `vendor/`.**
+- Copyright and redistribution terms remain with the original authors and the Dataverse deposit.
+- These files are included only as a local specification for independent verification.
+- Do **not** redistribute `vendor/` outside the terms of the Dataverse package.
+- Survey microdata are never part of this repository.
+
+If Dataverse terms for your download do not clearly allow keeping a local copy of the `.do` files inside a third-party repo, delete `vendor/stata_dofiles/` and obtain them only from Dataverse for private use.
+
 ## Purpose
 
 - Formal **specification** for the OpenCausalLab Python case study
@@ -11,7 +28,6 @@ The `vendor/` tree holds **extracted copies of the authors’ Stata `.do` files*
 ## Not for execution in this project
 
 - Do **not** treat edits under `vendor/` as the way to “fix” the Python pipeline
-- Do **not** redistribute these files outside Dataverse terms
 - OpenCausalLab does not require a Stata license to **run** the Python path; equivalence is judged against this specification and the manuscript
 
 ## Layout
@@ -25,5 +41,3 @@ studies/lakdawala2025/vendor/stata_dofiles/
   appendix_tables/…
   appendix_figures/…
 ```
-
-Copyright and redistribution of these materials remain with the original authors / Dataverse deposit. OpenCausalLab’s MIT license covers **this repository’s Python code and documentation**, not the vendor do-files or survey microdata.

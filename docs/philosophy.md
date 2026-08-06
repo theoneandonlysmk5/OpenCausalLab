@@ -16,5 +16,5 @@ Modern causal tools (subgroup effects, local CATE) sit **above** a verified repl
 
 ## Framework vs case study
 
-- **`core/`** — reusable library (Stata semantics, validation helpers, estimation utilities).
+- **`opencausallab/`** — reusable library (Stata semantics, validation helpers, estimation utilities).
 - **`studies/<paper>/`** — everything specific to one paper: data, ETL, tables, docs, vendor specs, tests.

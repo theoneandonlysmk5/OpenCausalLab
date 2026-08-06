@@ -22,9 +22,9 @@ sys.path.insert(0, str(CASE_ROOT))
 import pandas as pd  # noqa: E402
 
 from src import paths  # noqa: E402
-from core.stata_semantics.stata_utils import to_numeric  # noqa: E402
+from opencausallab.stata_semantics.stata_utils import to_numeric  # noqa: E402
 from src.table3 import load_hhsurvey  # noqa: E402
-from core.validation.audit import audit_frame  # noqa: E402
+from opencausallab.validation.audit import audit_frame  # noqa: E402
 from src.validation.table3_audit import (  # noqa: E402
     build_table3_ledger,
     regression_ladder,

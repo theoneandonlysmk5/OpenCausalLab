@@ -15,7 +15,7 @@ import pandas as pd
 from scipy import stats
 
 from . import paths
-from core.causal.didisc_reg import (
+from opencausallab.causal.didisc_reg import (
     DEMO,
     PERIOD,
     RD_W14,
@@ -26,7 +26,7 @@ from core.causal.didisc_reg import (
     stars,
     wls_cluster,
 )
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 from .table3 import load_hhsurvey, prepare_table3_sample, run_table3
 
 # ---------------------------------------------------------------------------

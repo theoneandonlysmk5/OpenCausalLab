@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 from src.hhsurvey import (
     build_ch_ages,
@@ -13,7 +14,9 @@ from src.hhsurvey import (
     build_travel_tomerge,
     write_hhsurvey,
 )
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
+
+pytestmark = pytest.mark.microdata
 
 
 def _load_persona():

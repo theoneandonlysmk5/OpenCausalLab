@@ -13,7 +13,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from core.stata_semantics.stata_utils import inrange, replace_where, to_numeric
+from opencausallab.stata_semantics.stata_utils import inrange, replace_where, to_numeric
 
 
 def _head_indicator(rel_head: pd.Series) -> pd.Series:

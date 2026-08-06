@@ -1,3 +1,3 @@
 table,n_hhsurvey,n_esample,path
-3,125368,11991,/home/thomas/myprojects/research/001/OpenCausalLab/data/final/samples/sample_table3.parquet
-4A,125368,7650,/home/thomas/myprojects/research/001/OpenCausalLab/data/final/samples/sample_table4.parquet
+3,125368,11991,/home/thomas/myprojects/research/001/OpenCausalLab/studies/lakdawala2025/data/final/samples/sample_table3.parquet
+4A,125368,7650,/home/thomas/myprojects/research/001/OpenCausalLab/studies/lakdawala2025/data/final/samples/sample_table4.parquet

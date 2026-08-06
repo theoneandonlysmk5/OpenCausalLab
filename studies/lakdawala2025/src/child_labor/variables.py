@@ -10,7 +10,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from core.stata_semantics.stata_utils import inrange, replace_where, stata_round, to_numeric
+from opencausallab.stata_semantics.stata_utils import inrange, replace_where, stata_round, to_numeric
 from .utils import mdy
 
 

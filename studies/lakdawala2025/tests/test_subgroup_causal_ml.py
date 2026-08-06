@@ -6,13 +6,15 @@ import pandas as pd
 import pytest
 
 from src import paths
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 from src.subgroup import PUBLISHED_GENDER, run_prespecified_subgroups
-from src.causal_ml import build_analysis_frame, crossfit_didisc_score, run_causal_ml
 
 HH_PATH = paths.FINAL / "HHsurvey.parquet"
 
-pytestmark = pytest.mark.skipif(not HH_PATH.exists(), reason="HHsurvey missing")
+pytestmark = [
+    pytest.mark.microdata,
+    pytest.mark.skipif(not HH_PATH.exists(), reason="HHsurvey missing"),
+]
 
 
 def test_to_numeric_bool():
@@ -51,14 +53,19 @@ def test_distance_signs(hh: pd.DataFrame):
     assert abs(d["n"] - 7650) < 50
 
 
+@pytest.mark.causal_ml
 def test_causal_ml_runs(hh: pd.DataFrame):
+    pytest.importorskip("econml")
+    from src.causal_ml import (
+        build_analysis_frame,
+        cate_summary,
+        crossfit_didisc_score,
+        fit_honest_causal_forest,
+    )
+
     frame = build_analysis_frame(hh)
     scored = crossfit_didisc_score(frame, n_splits=3, random_state=0)
     assert "y_resid" in scored and scored["y_resid"].notna().all()
-    # Smaller forest for test speed
-    from src.causal_ml import fit_honest_causal_forest, cate_summary
-
-    # Use only always-present features for speed/reliability
     forest, used, feats = fit_honest_causal_forest(
         scored,
         features=["male", "urban", "indig_head", "head_schooling", "head_male"],
@@ -66,7 +73,7 @@ def test_causal_ml_runs(hh: pd.DataFrame):
         random_state=0,
     )
     summary = cate_summary(used, list(feats))
+    assert forest is not None
     assert "cate" in used.columns
     assert summary.loc[summary["stat"] == "mean_cate", "value"].iloc[0] < 0.05
-    # Do not persist ITEs
     assert used["cate"].notna().all()

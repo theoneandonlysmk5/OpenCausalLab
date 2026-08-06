@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 
 
 def mdy(month: pd.Series, day: pd.Series, year: pd.Series) -> pd.Series:

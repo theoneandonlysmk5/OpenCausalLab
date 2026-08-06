@@ -14,7 +14,7 @@ sys.path.insert(0, str(CASE_ROOT))
 import pandas as pd  # noqa: E402
 
 from src.hhsurvey import build_hhsurvey, write_hhsurvey  # noqa: E402
-from core.stata_semantics.stata_utils import to_numeric  # noqa: E402
+from opencausallab.stata_semantics.stata_utils import to_numeric  # noqa: E402
 
 
 def main() -> None:

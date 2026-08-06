@@ -14,7 +14,10 @@ HH = paths.FINAL / "HHsurvey.parquet"
 VAL = paths.FINAL / "validation"
 SAMPLES = paths.FINAL / "samples"
 
-pytestmark = pytest.mark.skipif(not HH.exists(), reason="HHsurvey.parquet missing")
+pytestmark = [
+    pytest.mark.microdata,
+    pytest.mark.skipif(not HH.exists(), reason="HHsurvey.parquet missing"),
+]
 
 
 @pytest.fixture(scope="module")

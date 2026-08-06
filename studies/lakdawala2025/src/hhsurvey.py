@@ -14,7 +14,7 @@ import pandas as pd
 
 from . import paths
 from .persona.common import read_dta
-from core.stata_semantics.stata_utils import recode_map, replace_where, stata_round, to_numeric, winsor_high
+from opencausallab.stata_semantics.stata_utils import recode_map, replace_where, stata_round, to_numeric, winsor_high
 
 _EPOCH = pd.Timestamp("1960-01-01")
 
@@ -947,7 +947,7 @@ def write_hhsurvey(
 
     full.loc[age < 21].to_parquet(child_path, index=False)
     full.loc[age < 65].to_parquet(adult_path, index=False)
-    from core.utils.provenance import write_provenance
+    from opencausallab.utils.provenance import write_provenance
 
     write_provenance(
         child_path,

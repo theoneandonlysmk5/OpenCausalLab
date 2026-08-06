@@ -12,7 +12,7 @@ REPO_ROOT = CASE_ROOT.parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 sys.path.insert(0, str(CASE_ROOT))
 
-from core.utils.provenance import git_hash, sha256_file  # noqa: E402
+from opencausallab.utils.provenance import git_hash, sha256_file  # noqa: E402
 
 TARGETS = [
     CASE_ROOT / "data" / "final" / "HHsurvey.parquet",

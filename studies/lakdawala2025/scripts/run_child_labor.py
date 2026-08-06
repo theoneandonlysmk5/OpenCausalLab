@@ -12,7 +12,7 @@ sys.path.insert(0, str(REPO_ROOT))
 sys.path.insert(0, str(CASE_ROOT))
 
 from src.child_labor.build import build_rw_child_labor_survey  # noqa: E402
-from core.stata_semantics.stata_utils import to_numeric  # noqa: E402
+from opencausallab.stata_semantics.stata_utils import to_numeric  # noqa: E402
 
 
 def main() -> None:

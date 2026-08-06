@@ -15,10 +15,13 @@ from src.table3 import (
 
 HH_PATH = paths.FINAL / "HHsurvey.parquet"
 
-pytestmark = pytest.mark.skipif(
-    not HH_PATH.exists(),
-    reason="HHsurvey.parquet not built yet",
-)
+pytestmark = [
+    pytest.mark.microdata,
+    pytest.mark.skipif(
+        not HH_PATH.exists(),
+        reason="HHsurvey.parquet not built yet",
+    ),
+]
 
 
 @pytest.fixture(scope="module")

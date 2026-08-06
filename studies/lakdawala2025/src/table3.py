@@ -23,7 +23,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 
 from . import paths
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 
 YVARS = [
     "works",

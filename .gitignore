@@ -15,6 +15,10 @@ studies/*/data/final/tables.zip
 !studies/*/data/final/samples/
 !studies/*/data/final/samples/.gitkeep
 
+# Row-level audit dumps (IDs or one-row-per-observation) — never track
+studies/*/data/final/validation/table5_wage_obs_flags.csv
+studies/*/data/final/validation/table6_firm_size_contributions.csv
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -27,6 +31,8 @@ __pycache__/
 .coverage
 htmlcov/
 coverage.xml
+dist/
+artifacts/
 
 *.dta
 *.zip

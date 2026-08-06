@@ -9,7 +9,7 @@ import pandas as pd
 
 from .. import paths
 from ..persona.common import _resolve_col, select_keep
-from core.stata_semantics.stata_utils import replace_where, stata_str, to_numeric
+from opencausallab.stata_semantics.stata_utils import replace_where, stata_str, to_numeric
 
 WAGES_KEEP = [
     "wage_total",

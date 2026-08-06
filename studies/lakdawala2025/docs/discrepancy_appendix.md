@@ -76,7 +76,7 @@ Python reports that statistic separately as `mean_number_workers_pre` and does *
 Paper N = **712** (−3). Artifacts:
 
 - `data/final/validation/table5_wage_sample_ledger.csv`
-- `data/final/validation/table5_wage_obs_flags.csv`
+- `data/final/validation/table5_wage_obs_flags.csv` (local only; gitignored — contains `id_year`)
 
 ### What the three observations are not
 

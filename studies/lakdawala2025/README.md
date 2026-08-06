@@ -3,7 +3,7 @@
 **Paper:** *The Effects of Expanding Worker Rights to Children*  
 Lakdawala, Martínez Heredia, Vera-Cossio — [Dataverse 10.7910/DVN/WJIQ6G](https://doi.org/10.7910/DVN/WJIQ6G)
 
-Everything in this folder is **specific to this paper**. Shared library code lives in repo-root [`core/`](../../core/).
+Everything in this folder is **specific to this paper**. Shared library code lives in repo-root [`opencausallab/`](../../opencausallab/).
 
 ## Status
 

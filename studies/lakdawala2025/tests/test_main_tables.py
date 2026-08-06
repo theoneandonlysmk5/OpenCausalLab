@@ -9,7 +9,10 @@ from src import paths
 from src.main_tables import build_main_tables_ledger
 
 HH = paths.FINAL / "HHsurvey.parquet"
-pytestmark = pytest.mark.skipif(not HH.exists(), reason="HHsurvey missing")
+pytestmark = [
+    pytest.mark.microdata,
+    pytest.mark.skipif(not HH.exists(), reason="HHsurvey missing"),
+]
 
 
 @pytest.fixture(scope="module")

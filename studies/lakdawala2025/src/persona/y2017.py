@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from core.stata_semantics.stata_utils import replace_where, to_numeric
+from opencausallab.stata_semantics.stata_utils import replace_where, to_numeric
 from .common import (
     _resolve_col,
     binary_01,
@@ -34,7 +34,7 @@ from .common import (
     rel_jefe_le4,
     select_keep,
 )
-from core.stata_semantics.stata_utils import stata_str
+from opencausallab.stata_semantics.stata_utils import stata_str
 
 PERSONA_2017_KEEP = [
     "id",

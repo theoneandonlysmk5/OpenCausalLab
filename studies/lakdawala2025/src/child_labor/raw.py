@@ -12,7 +12,7 @@ import pandas as pd
 
 from .. import paths
 from ..persona.common import read_dta
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 from .utils import make_person_id
 
 CHILD_LABOR_RAW = paths.RAW / "child_labor"

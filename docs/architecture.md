@@ -2,7 +2,7 @@
 
 ```text
 OpenCausalLab/
-├── core/                 # reusable, paper-agnostic
+├── opencausallab/                 # reusable, paper-agnostic
 │   ├── validation/
 │   ├── utils/
 │   ├── stata_semantics/
@@ -21,7 +21,10 @@ OpenCausalLab/
 └── examples/
 ```
 
-## `core/`
+`opencausallab/` is currently an **experimental internal API**. Backward compatibility is
+not guaranteed before v1.0.
+
+## `opencausallab/`
 
 | Package | Role |
 |---------|------|
@@ -40,7 +43,7 @@ Import pattern in case-study scripts:
 ```python
 CASE_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = CASE_ROOT.parents[1]
-sys.path.insert(0, str(REPO_ROOT))  # core
+sys.path.insert(0, str(REPO_ROOT))  # opencausallab
 sys.path.insert(0, str(CASE_ROOT))  # src
 ```
 

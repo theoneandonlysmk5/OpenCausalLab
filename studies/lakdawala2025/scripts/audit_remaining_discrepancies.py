@@ -24,8 +24,8 @@ sys.path.insert(0, str(CASE_ROOT))
 from src import paths  # noqa: E402
 from src.child_labor.design import AGE_HI, AGE_LO, STATA_SEED, SUBSAMPLE_FRAC  # noqa: E402
 from src.child_labor.tables import load_cl, run_table5_cl  # noqa: E402
-from core.causal.didisc_reg import DEMO, PERIOD, RD_W14, depto_year, didisc_formula, wls_cluster  # noqa: E402
-from core.stata_semantics.stata_utils import to_numeric, winsor_high  # noqa: E402
+from opencausallab.causal.didisc_reg import DEMO, PERIOD, RD_W14, depto_year, didisc_formula, wls_cluster  # noqa: E402
+from opencausallab.stata_semantics.stata_utils import to_numeric, winsor_high  # noqa: E402
 from src.table3 import prepare_table3_sample  # noqa: E402
 
 OUT = paths.FINAL / "validation"

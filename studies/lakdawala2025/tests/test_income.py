@@ -5,9 +5,14 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
+import pytest
+
+pytest.importorskip("pyreadstat")
 
 from src.income import harmonize_income
 from src.persona.common import read_persona
+
+pytestmark = pytest.mark.microdata
 
 
 def _persona_rows(year: int) -> int:

@@ -26,7 +26,7 @@ from .persona.y2016 import harmonize_persona_2016
 from .persona.y2017 import harmonize_persona_2017
 from .persona.y2018 import harmonize_persona_2018
 from .persona.y2019 import harmonize_persona_2019
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.stata_semantics.stata_utils import to_numeric
 
 __all__ = [
     "clean_persona",

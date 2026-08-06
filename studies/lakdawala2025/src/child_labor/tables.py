@@ -10,8 +10,8 @@ import pandas as pd
 from scipy import stats
 
 from .. import paths
-from core.causal.didisc_reg import depto_year, stars, wls_cluster
-from core.stata_semantics.stata_utils import to_numeric
+from opencausallab.causal.didisc_reg import depto_year, stars, wls_cluster
+from opencausallab.stata_semantics.stata_utils import to_numeric
 
 # Manuscript (JDE r1) targets
 PUBLISHED_TABLE1_C = {
