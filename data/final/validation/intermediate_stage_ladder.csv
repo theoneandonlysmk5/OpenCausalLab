@@ -1,0 +1,6 @@
+stage,n,expected,match,note
+EH_cleaned_persona,295482,295482.0,True,
+EH_cleaned_income,218360,218360.0,True,
+HHsurvey age<21,125368,125368.0,True,
+Table3 e(sample),11991,11991.0,True,kernel>0 + complete cases
+HHsurvey years 2012-2019,125368,,,

@@ -1,13 +1,17 @@
 # OpenCausalLab
 
 ![Replication: Table 3 PASS](https://img.shields.io/badge/Replication-Table%203%20PASS-brightgreen)
+[![replication-ci](https://github.com/theoneandonlysmk5/OpenCausalLab/actions/workflows/replication-ci.yml/badge.svg)](https://github.com/theoneandonlysmk5/OpenCausalLab/actions/workflows/replication-ci.yml)
+![coverage](https://img.shields.io/badge/coverage-pytest--cov-informational)
 
-OpenCausalLab is a framework for independently verifying empirical economics research through transparent Python implementations. This repository reproduces the published design of Lakdawala et al. as its first case study:
+**OpenCausalLab** is an open framework for independently verifying empirical economics research in Python. This repository’s first case study reproduces Lakdawala et al. (worker rights expansion to children).
 
 > *The Effects of Expanding Worker Rights to Children*  
 > Lakdawala, Martínez Heredia, Vera-Cossio (Dataverse DOI [10.7910/DVN/WJIQ6G](https://doi.org/10.7910/DVN/WJIQ6G))
 
 Formal specification for this case study = the authors’ `.do` files under `vendor/stata_dofiles/`.
+
+Future layout (as more papers are added): `case-studies/lakdawala-worker-rights/` under the same framework — see [`SOFTWARE.md`](SOFTWARE.md).
 
 ## Executive summary (for reviewers)
 
@@ -26,10 +30,14 @@ Formal specification for this case study = the authors’ `.do` files under `ven
 | Standard errors | Pass (matches manuscript) |
 | Inference | Pass |
 
-**Design primer (non-economists):** [`docs/DESIGN.md`](docs/DESIGN.md)  
-**Scope one-pager:** [`docs/replication_scope.md`](docs/replication_scope.md)  
-**Full confidence argument:** [`docs/verification.md`](docs/verification.md)  
-**Discrepancy ledger:** [`docs/discrepancy_appendix.md`](docs/discrepancy_appendix.md)
+**Design primer:** [`docs/DESIGN.md`](docs/DESIGN.md)  
+**Scope:** [`docs/replication_scope.md`](docs/replication_scope.md)  
+**Verification:** [`docs/verification.md`](docs/verification.md)  
+**Reproduction time / RAM / hashes:** [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md)  
+**Python vs Stata:** [`docs/python_vs_stata.md`](docs/python_vs_stata.md)  
+**Pipeline DAG:** [`docs/pipeline_dag.md`](docs/pipeline_dag.md)  
+**Variable dictionary:** [`data/final/validation/variable_dictionary.csv`](data/final/validation/variable_dictionary.csv)  
+**Software / Contributing / Changelog:** [`SOFTWARE.md`](SOFTWARE.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md)
 
 **Thesis:** verify published empirical designs via independent open implementations **without breaking identification**, then extend with modern causal tools only after verification.
 
@@ -114,6 +122,30 @@ python scripts/run_verification.py
 
 Protocol for contributors: [`docs/validation_protocol.md`](docs/validation_protocol.md). Run that protocol **before any causal-ML extension**.
 
+### Continuous integration
+
+Every push / PR runs [`.github/workflows/replication-ci.yml`](.github/workflows/replication-ci.yml):
+
+```text
+pytest (unit)
+     ↓
+rebuild Table 3   (if HHsurvey.parquet present)
+     ↓
+verification
+     ↓
+committed artifact gates
+     ↓
+PASS
+```
+
+Locally (with microdata built):
+
+```bash
+python scripts/ci_gate.py
+```
+
+To enable **full** live rebuild on GitHub Actions, add repository secret `HHSURVEY_PARQUET_URL` pointing to a private download URL for `HHsurvey.parquet` (microdata is never committed). Without the secret, CI still validates committed Table 3 / verification CSVs against manuscript anchors.
+
 ## Subgroup DiDisc + local CATE
 
 ```bash
@@ -125,14 +157,40 @@ Reports **local CATE summaries only** (no individual ITEs). Not part of the pape
 
 ## Environment
 
+Pinned dependencies: [`requirements.txt`](requirements.txt).
+
 | Component | Version |
 |-----------|---------|
-| Python | 3.10.12 |
+| Python | 3.10+ (verified 3.10.12) |
 | pandas | 2.3.3 |
 | NumPy | 2.2.6 |
 | SciPy | 1.15.3 |
 | statsmodels | 0.14.6 |
+| pyarrow | 25.0.0 |
+| pyreadstat | 1.3.5 |
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Or reuse a shared parent venv:
 
 ```bash
 source ../.venv/bin/activate
+python -m pip install -r requirements.txt
 ```
+## License
+
+OpenCausalLab **code and documentation** in this repository are released under the [MIT License](LICENSE).
+
+This does **not** cover:
+
+- Original survey microdata (obtain from [Harvard Dataverse](https://doi.org/10.7910/DVN/WJIQ6G); subject to Dataverse / depositor terms)
+- Authors’ Stata materials under `vendor/` (reference copies for specification; retain their original copyright and redistribution terms)
+- The empirical findings of Lakdawala, Martínez Heredia, and Vera-Cossio (cite the paper)
+
+## Citation
+
+Cite this software via GitHub’s “Cite this repository” button, or see [`CITATION.cff`](CITATION.cff). When discussing the empirical findings, cite Lakdawala et al. separately.

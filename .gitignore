@@ -31,3 +31,4 @@ data/final/tables.zip
 *.dta
 *.zip
 *.pdf
+*.provenance.json

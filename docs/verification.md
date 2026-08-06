@@ -216,13 +216,24 @@ Sign stable; magnitude attenuates smoothly with wider bandwidth.
 
 ## Appendix C — Environment
 
+Pinned install file: [`../requirements.txt`](../requirements.txt).
+
 | Component | Version |
 |-----------|---------|
-| Python | 3.10.12 |
+| Python | 3.10.12 (verified) |
 | pandas | 2.3.3 |
 | NumPy | 2.2.6 |
 | SciPy | 1.15.3 |
 | statsmodels | 0.14.6 |
+| pyarrow | 25.0.0 |
+| pyreadstat | 1.3.5 |
+| pytest | 9.1.1 |
+| scikit-learn | 1.7.2 |
+| econml | 0.17.0 |
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 Full module map and stage audits: [`pipeline.md`](pipeline.md), `data/final/validation/`.
 

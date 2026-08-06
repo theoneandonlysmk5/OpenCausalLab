@@ -1,0 +1,54 @@
+Variable,Source,Stage,Description
+age_dob_m,Persona / HH,HHsurvey,Age in months; Stata half-away-from-zero round; DiDisc running base
+year,Persona,Persona → HHsurvey,Survey year 2012–2019
+depto,Persona,HHsurvey,Department code; enters depto×year FE
+cod_secc,UPM merge,Persona clean,Municipality section code; travel/assets merge key
+works,Persona,HHsurvey,Any work (Table 3 / Table 1 outcome)
+hours_week_a,Persona,HHsurvey,Hours worked (zeros for non-workers)
+self_employed_a,Persona,HHsurvey,Work for self
+wrk_forother_a,Persona,HHsurvey,Work for others
+forbidden_a,Persona,HHsurvey,Prohibited work
+not_forbidden_a,Persona,HHsurvey,Allowed work
+lf_participation,Persona,HHsurvey,Labor force participation
+attendance,Persona,HHsurvey,School attendance among workers (cleared if not working)
+attendance_a,Persona,HHsurvey,School attendance for all children
+urban,Persona,HHsurvey,Urban residence
+male,Persona,HHsurvey,Child is male
+head_schooling,Persona,HHsurvey,Household head years of schooling
+head_male,Persona,HHsurvey,Head is male
+head_age,Persona,HHsurvey,Head age
+indig_head,Persona,HHsurvey,Indigenous head (missing filled 0 before CL IPW)
+hh_agecat1,HH ages,HHsurvey,Household age-category count 1
+hh_agecat2,HH ages,HHsurvey,Household age-category count 2
+hh_agecat3,HH ages,HHsurvey,Household age-category count 3
+hh_agecat4,HH ages,HHsurvey,Household age-category count 4
+adult_women,Persona,HHsurvey,Adult women in household
+adult_men,Persona,HHsurvey,Adult men in household
+eligible_gr,Constructed,HHsurvey,CCT / program eligibility control
+runningw14,Constructed,HHsurvey,Running variable: age months relative to age 14
+treatw14,Constructed,HHsurvey,1{runningw14 < 0}
+treatxrunningw14,Constructed,HHsurvey,Interaction treat × running
+post,Constructed,HHsurvey,Law period indicator
+post_rev,Constructed,HHsurvey,Reversal period indicator
+pre,Constructed,HHsurvey,Pre-law period
+xxw3,Constructed,HHsurvey,post × treatw14 (main DiDisc interaction)
+xxrw3,Constructed,HHsurvey,post_rev × treatw14
+kernel_triw14,Constructed,HHsurvey,Triangular kernel weight BW 12 months
+sww14,Constructed,HHsurvey,Bandwidth sample flag |running| ≤ 12
+age_mo_year,Constructed,HHsurvey,Cluster id: age-in-months × year
+depto_year,Constructed,Estimation,FE id string depto_year
+het_time,Travel merge,HHsurvey,Far from inspector by driving time (float32 median)
+het_dist,Travel merge,HHsurvey,Far by direct distance
+mtepsoffices,Travel,HHsurvey,MTEPS office municipality flag
+wage_hour_w,Income,HHsurvey,Hourly wage (winsor path); Table 5
+log_wage_hour_w,Constructed,HHsurvey,log(wage_hour_w+1) per do-file
+number_workers,Persona,HHsurvey,Firm size raw
+number_workers_w,Constructed,HHsurvey,Firm size winsorized (p95 cap 60)
+number_workers_a_w,Constructed,HHsurvey,Firm size outcome Table 6
+income_q,Income merge,HHsurvey,Household income quantile (income files 2012–17)
+folio,Persona,Persona,Household id within year
+id_year,Constructed,Persona/Income,Person–year merge key
+risks_a,CL survey,CL build,Hazardous work / risk indicator
+injury_a,CL survey,CL build,Injury indicator
+ss,CL design,CL design,Stacked DiDisc sample flag
+probpost,CL design,CL design,IPW weight component (RNG-sensitive)

@@ -1,0 +1,25 @@
+{
+  "git_hash": "22095efda26a05bd17a887a6bbd33000c3fda753",
+  "files": {
+    "data/final/HHsurvey.parquet": {
+      "sha256": "0f340ba027736e3ef9e214de884bcd5e6f938a147e89f886bc57fddf0323523f",
+      "bytes": 24786873
+    },
+    "data/final/HHsurvey_ad.parquet": {
+      "sha256": "8b8f4d4dd1efee8db6151a11b7b8ff0c6379e7eeaa728c7f352f212bea50aa71",
+      "bytes": 60823584
+    },
+    "data/final/RW_child_labor_survey.parquet": {
+      "sha256": "d78ce04e78c766e6aef49162d966193e9a8138882dbfa2e7fdc3bad335114d66",
+      "bytes": 2109408
+    },
+    "data/final/samples/sample_table3.parquet": {
+      "sha256": "47ea4be13ad9eb8508e38741dfa952731d60b8364bd2c88977a22bf97f4ca9f8",
+      "bytes": 2934333
+    },
+    "data/final/samples/sample_table4.parquet": {
+      "sha256": "939441fce064f459b401b1d99793f961683d5a134bcd4522da0e9db4941eb653",
+      "bytes": 2252306
+    }
+  }
+}

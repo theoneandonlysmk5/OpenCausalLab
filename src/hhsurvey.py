@@ -947,4 +947,16 @@ def write_hhsurvey(
 
     full.loc[age < 21].to_parquet(child_path, index=False)
     full.loc[age < 65].to_parquet(adult_path, index=False)
+    from .provenance import write_provenance
+
+    write_provenance(
+        child_path,
+        created_by="src.hhsurvey.write_hhsurvey",
+        extra={"filter": "age < 21", "n": int((age < 21).sum())},
+    )
+    write_provenance(
+        adult_path,
+        created_by="src.hhsurvey.write_hhsurvey",
+        extra={"filter": "age < 65", "n": int((age < 65).sum())},
+    )
     return child_path, adult_path

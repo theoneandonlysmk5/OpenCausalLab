@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use OpenCausalLab, please cite this repository."
+type: software
+title: OpenCausalLab
+version: "0.1.0-python-replication"
+date-released: "2026-08-05"
+abstract: >-
+  A framework for independently verifying empirical economics research through
+  transparent Python implementations. The first case study reproduces the
+  published empirical design of Lakdawala, Martínez Heredia, and Vera-Cossio
+  (Effects of Expanding Worker Rights to Children) without breaking identification.
+authors:
+  - family-names: Huo
+    given-names: Sheng
+repository-code: "https://github.com/theoneandonlysmk5/OpenCausalLab"
+license: MIT
+keywords:
+  - replication
+  - empirical economics
+  - difference-in-discontinuities
+  - causal inference
+  - open science
+preferred-citation:
+  type: software
+  title: OpenCausalLab
+  authors:
+    - family-names: Huo
+      given-names: Sheng
+  year: 2026
+  version: "0.1.0-python-replication"
+  url: "https://github.com/theoneandonlysmk5/OpenCausalLab"

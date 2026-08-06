@@ -1,7 +1,8 @@
 name: replication-ci
 
-# Tier-4 sketch: pytest validates design equivalence when microdata exist;
-# always checks committed ledger / verification CSVs for regressions.
+# pytest → rebuild Table 3 → verification → PASS
+# Full live rebuild when HHsurvey.parquet is available (checkout or secret URL).
+# Without microdata, unit tests + committed artifact gates still run.
 
 on:
   push:
@@ -10,52 +11,57 @@ on:
   workflow_dispatch:
 
 jobs:
-  unit-and-ledger:
+  replication:
+    name: Replication CI
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
+    timeout-minutes: 45
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+          cache: pip
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas numpy scipy statsmodels pyarrow pytest
+          pip install -r requirements.txt
 
-      - name: Pytest (skips data-heavy tests if parquet absent)
+      - name: Restore HHsurvey (optional secret)
+        env:
+          HHSURVEY_PARQUET_URL: ${{ secrets.HHSURVEY_PARQUET_URL }}
         run: |
-          pytest tests/test_stata_round.py tests/test_table3.py tests/test_verification.py -q --tb=short
+          mkdir -p data/final
+          if [ -n "${HHSURVEY_PARQUET_URL}" ]; then
+            echo "Downloading HHsurvey.parquet from secret URL…"
+            curl -fsSL "${HHSURVEY_PARQUET_URL}" -o data/final/HHsurvey.parquet
+            ls -lh data/final/HHsurvey.parquet
+          elif [ -f data/final/HHsurvey.parquet ]; then
+            echo "HHsurvey.parquet already present in workspace"
+            ls -lh data/final/HHsurvey.parquet
+          else
+            echo "No microdata in CI — artifact gates only (see docs/verification.md)"
+          fi
 
-      - name: Ledger status gate (committed CSV)
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import pandas as pd
-          p = Path("data/final/tables/main_tables_ledger.csv")
-          assert p.exists(), "main_tables_ledger.csv missing from repo"
-          led = pd.read_csv(p)
-          open_rows = led.loc[led["status"].astype(str).str.lower() == "open"]
-          assert open_rows.empty, open_rows.to_dict("records")
-          t3 = led.loc[led["result"] == "Table3 works xxw3"].iloc[0]
-          assert abs(float(t3["python"]) + 0.039351) < 1e-4
-          print("ledger gate PASS", len(led), "rows")
-          PY
+      - name: Replication gate (pytest → Table 3 → verification → PASS)
+        run: python scripts/ci_gate.py
 
-      - name: Spec equivalence gate
+      - name: Coverage (unit + committed-path tests)
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import pandas as pd
-          p = Path("data/final/validation/spec_equivalence_table3.csv")
-          assert p.exists(), "run scripts/run_verification.py and commit CSVs"
-          spec = pd.read_csv(p)
-          bad = spec.loc[~spec["match"].astype(str).str.lower().isin(["true", "1"])]
-          assert bad.empty, bad.to_dict("records")
-          print("spec equivalence PASS", len(spec), "items")
-          PY
+          pytest tests/test_stata_round.py -q --cov=src --cov-report=term-missing --cov-report=xml
+        continue-on-error: true
+
+      - name: Upload verification artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-outputs
+          path: |
+            data/final/tables/table3*.csv
+            data/final/validation/
+            coverage.xml
+          if-no-files-found: warn

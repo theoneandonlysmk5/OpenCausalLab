@@ -14,13 +14,15 @@ import pandas as pd
 import statsmodels.api as sm
 
 from ..hhsurvey import build_travel_tomerge
+from ..seeds import STATA_SEED
 from ..stata_utils import to_numeric
 
-
-STATA_SEED = 794758
 AGE_LO, AGE_HI = 108.0, 180.0
 SUBSAMPLE_FRAC = 0.7
 BW = 12.0
+
+# Re-export for callers that imported STATA_SEED from this module.
+__all__ = ["STATA_SEED", "AGE_LO", "AGE_HI", "SUBSAMPLE_FRAC", "BW", "add_reweight_and_didisc"]
 
 
 def _assign_subsample(age_m: pd.Series, mask: pd.Series, rng: np.random.RandomState) -> pd.Series:

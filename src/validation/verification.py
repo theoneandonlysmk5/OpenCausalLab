@@ -486,6 +486,11 @@ def run_all_verification(hh: pd.DataFrame | None = None) -> dict[str, Path]:
     bw.to_csv(p, index=False)
     artifacts["bandwidth"] = p
 
+    from .stage_ladder import write_stage_ladder
+
+    p = write_stage_ladder(hh)
+    artifacts["stage_ladder"] = p
+
     res = run_table3(sample)
     cmp_rows = []
     for outcome, pub in PUBLISHED_TABLE3.items():
