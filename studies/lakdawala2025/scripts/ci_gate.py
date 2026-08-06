@@ -48,7 +48,7 @@ def append_summary(lines: list[str]) -> None:
 def gate_committed_artifacts() -> None:
     import pandas as pd
 
-    led = pd.read_csv(CASE_CASE_ROOT / "data" / "final" / "tables" / "main_tables_ledger.csv")
+    led = pd.read_csv(CASE_ROOT / "data" / "final" / "tables" / "main_tables_ledger.csv")
     t3 = led.loc[led["result"] == "Table3 works xxw3"].iloc[0]
     assert abs(float(t3["python"]) + 0.039351) < 1e-4, t3.to_dict()
     n = led.loc[led["result"] == "Table3 N"].iloc[0]
@@ -58,7 +58,7 @@ def gate_committed_artifacts() -> None:
     # Fail only on unexpected blank statuses.
     assert led["status"].notna().all()
 
-    spec = pd.read_csv(CASE_CASE_ROOT / "data" / "final" / "validation" / "spec_equivalence_table3.csv")
+    spec = pd.read_csv(CASE_ROOT / "data" / "final" / "validation" / "spec_equivalence_table3.csv")
     bad = spec.loc[~spec["match"].astype(str).str.lower().isin(["true", "1"])]
     assert bad.empty, bad.to_dict("records")
 
@@ -68,7 +68,7 @@ def gate_committed_artifacts() -> None:
     row12 = bw.loc[bw["bandwidth"] == 12].iloc[0]
     assert abs(float(row12["xxw3"]) + 0.039351) < 1e-4
 
-    coef = pd.read_csv(CASE_CASE_ROOT / "data" / "final" / "validation" / "table3_spec_coef_check.csv")
+    coef = pd.read_csv(CASE_ROOT / "data" / "final" / "validation" / "table3_spec_coef_check.csv")
     works = coef.loc[coef["outcome"] == "works"].iloc[0]
     assert abs(float(works["python_xxw3"]) + 0.039351) < 1e-4
     assert int(works["python_n"]) == 11991
