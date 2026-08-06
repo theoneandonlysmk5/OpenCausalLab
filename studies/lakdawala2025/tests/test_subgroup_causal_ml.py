@@ -6,7 +6,7 @@ import pandas as pd
 import pytest
 
 from src import paths
-from src.stata_utils import to_numeric
+from core.stata_semantics.stata_utils import to_numeric
 from src.subgroup import PUBLISHED_GENDER, run_prespecified_subgroups
 from src.causal_ml import build_analysis_frame, crossfit_didisc_score, run_causal_ml
 

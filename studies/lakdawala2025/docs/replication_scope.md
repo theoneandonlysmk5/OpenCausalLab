@@ -3,7 +3,7 @@
 One-page answer to: what this repository claims, what it does not claim, and where to look for evidence.
 
 **Paper:** Lakdawala, Martínez Heredia, Vera-Cossio, *The Effects of Expanding Worker Rights to Children*  
-**Formal specification:** authors’ `.do` files in `vendor/stata_dofiles/`  
+**Formal specification:** authors’ `.do` files in [`../vendor/stata_dofiles/`](../vendor/stata_dofiles/)  
 **Design primer:** [`DESIGN.md`](DESIGN.md)  
 **Full evidence:** [`verification.md`](verification.md) · discrepancies: [`discrepancy_appendix.md`](discrepancy_appendix.md)
 
@@ -90,4 +90,4 @@ Harvard Dataverse
    Tables 1–6 (outputs)
 ```
 
-Start: [`../README.md`](../README.md) → this file → [`DESIGN.md`](DESIGN.md) → [`verification.md`](verification.md) if needed.
+Start: [`../../../README.md`](../../../README.md) → [`../README.md`](../README.md) → this file → [`DESIGN.md`](DESIGN.md) → [`verification.md`](verification.md) if needed.

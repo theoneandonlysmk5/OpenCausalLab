@@ -7,22 +7,24 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+CASE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = CASE_ROOT.parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(CASE_ROOT))
 
-from src.provenance import git_hash, sha256_file  # noqa: E402
+from core.utils.provenance import git_hash, sha256_file  # noqa: E402
 
 TARGETS = [
-    ROOT / "data" / "final" / "HHsurvey.parquet",
-    ROOT / "data" / "final" / "HHsurvey_ad.parquet",
-    ROOT / "data" / "final" / "RW_child_labor_survey.parquet",
-    ROOT / "data" / "final" / "samples" / "sample_table3.parquet",
-    ROOT / "data" / "final" / "samples" / "sample_table4.parquet",
+    CASE_ROOT / "data" / "final" / "HHsurvey.parquet",
+    CASE_ROOT / "data" / "final" / "HHsurvey_ad.parquet",
+    CASE_ROOT / "data" / "final" / "RW_child_labor_survey.parquet",
+    CASE_ROOT / "data" / "final" / "samples" / "sample_table3.parquet",
+    CASE_ROOT / "data" / "final" / "samples" / "sample_table4.parquet",
 ]
 
 
 def main() -> None:
-    out = ROOT / "data" / "final" / "validation" / "output_hashes.json"
+    out = CASE_ROOT / "data" / "final" / "validation" / "output_hashes.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "git_hash": git_hash(ROOT),

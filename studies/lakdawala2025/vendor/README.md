@@ -17,7 +17,7 @@ The `vendor/` tree holds **extracted copies of the authors’ Stata `.do` files*
 ## Layout
 
 ```text
-vendor/stata_dofiles/
+studies/lakdawala2025/vendor/stata_dofiles/
   Master_00.do
   data_cleaning/…
   main_tables/…

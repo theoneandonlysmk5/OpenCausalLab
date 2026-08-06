@@ -64,4 +64,4 @@ flowchart TD
   RC --> EXT
 ```
 
-See [`pipeline.md`](pipeline.md) for file-level lineage and [`SOFTWARE.md`](../SOFTWARE.md) for module boundaries.
+See [`pipeline.md`](pipeline.md) for file-level lineage and [`SOFTWARE.md`](../../../SOFTWARE.md) for module boundaries.

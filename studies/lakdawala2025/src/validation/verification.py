@@ -2,7 +2,7 @@
 Replication confidence audits: spec equivalence, variable moments,
 merge integrity, e(sample) exports, FE/weights, bandwidth sensitivity.
 
-Outputs land in ``data/final/validation/`` and feed ``docs/verification.md``.
+Outputs land in ``data/final/validation/`` and feed ``studies/lakdawala2025/docs/verification.md``.
 """
 
 from __future__ import annotations
@@ -14,8 +14,8 @@ import numpy as np
 import pandas as pd
 
 from .. import paths
-from ..didisc_reg import depto_year, wls_cluster
-from ..stata_utils import to_numeric
+from core.causal.didisc_reg import depto_year, wls_cluster
+from core.stata_semantics.stata_utils import to_numeric
 from ..table3 import (
     CONTROLS,
     PUBLISHED_TABLE3,

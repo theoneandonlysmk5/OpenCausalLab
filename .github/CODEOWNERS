@@ -1,9 +1,7 @@
-# Default owners for OpenCausalLab
+# Default owners
 * @theoneandonlysmk5
 
-# Core pipeline and verification
-/src/ @theoneandonlysmk5
-/scripts/ @theoneandonlysmk5
+/core/ @theoneandonlysmk5
+/studies/ @theoneandonlysmk5
 /docs/ @theoneandonlysmk5
-/tests/ @theoneandonlysmk5
 /.github/ @theoneandonlysmk5

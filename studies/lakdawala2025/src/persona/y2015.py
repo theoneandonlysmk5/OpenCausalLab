@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from ..stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
+from core.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
 from .common import (
     binary_01,
     make_incomes,

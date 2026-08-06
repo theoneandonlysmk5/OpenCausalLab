@@ -1,3 +1,20 @@
+# Survey microdata and large intermediates (rebuild from Dataverse)
+studies/*/data/raw/**
+!studies/*/data/raw/.gitkeep
+studies/*/data/intermediate/**
+!studies/*/data/intermediate/.gitkeep
+studies/*/data/final/*.parquet
+studies/*/data/final/**/*.parquet
+studies/*/data/final/tables.zip
+
+# Keep small table/validation CSV outputs in git
+!studies/*/data/final/tables/
+!studies/*/data/final/tables/**
+!studies/*/data/final/validation/
+!studies/*/data/final/validation/**
+!studies/*/data/final/samples/
+!studies/*/data/final/samples/.gitkeep
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -9,24 +26,7 @@ __pycache__/
 *.egg-info/
 .coverage
 htmlcov/
-
-# Survey microdata and large intermediates (rebuild from Dataverse)
-data/raw/**
-!data/raw/.gitkeep
-data/intermediate/**
-!data/intermediate/.gitkeep
-data/final/*.parquet
-data/final/**/*.parquet
-data/final/tables.zip
-
-# Keep small table/validation CSV outputs in git
-!data/final/tables/
-!data/final/tables/**
-!data/final/validation/
-!data/final/validation/**
-!data/final/samples/
-!data/final/samples/.gitkeep
-# e(sample) parquets are large; rebuild with scripts/run_verification.py
+coverage.xml
 
 *.dta
 *.zip

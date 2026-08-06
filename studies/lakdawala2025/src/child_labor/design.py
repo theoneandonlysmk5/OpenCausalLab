@@ -14,8 +14,8 @@ import pandas as pd
 import statsmodels.api as sm
 
 from ..hhsurvey import build_travel_tomerge
-from ..seeds import STATA_SEED
-from ..stata_utils import to_numeric
+from core.utils.seeds import STATA_SEED
+from core.stata_semantics.stata_utils import to_numeric
 
 AGE_LO, AGE_HI = 108.0, 180.0
 SUBSAMPLE_FRAC = 0.7

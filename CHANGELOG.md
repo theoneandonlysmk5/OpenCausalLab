@@ -8,9 +8,15 @@ for tagged releases (`VERSION`).
 
 ## [Unreleased]
 
+### Changed
+
+- **Major layout:** reusable library in `core/`; Lakdawala paper fully under `studies/lakdawala2025/` (data, src, scripts, tests, docs, vendor)
+- Framework docs at `docs/{philosophy,architecture,roadmap}.md`; root README is framework-first
+
 ### Added
 
-- `LICENSE` (MIT), `CITATION.cff`, `requirements.txt` (pinned), `pyproject.toml` (ruff/black/pytest)
+- `examples/.gitkeep`
+- Case-study `tests/conftest.py` for `PYTHONPATH`
 - `SOFTWARE.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS`, `CHANGELOG.md`
 - `docs/REPRODUCTION.md` (runtime ~4s Table 3 / ~9–14s main tables; RAM/disk)
 - `docs/python_vs_stata.md`, `docs/pipeline_dag.md`, `vendor/README.md`

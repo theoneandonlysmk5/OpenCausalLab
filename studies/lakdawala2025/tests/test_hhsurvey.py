@@ -13,7 +13,7 @@ from src.hhsurvey import (
     build_travel_tomerge,
     write_hhsurvey,
 )
-from src.stata_utils import to_numeric
+from core.stata_semantics.stata_utils import to_numeric
 
 
 def _load_persona():

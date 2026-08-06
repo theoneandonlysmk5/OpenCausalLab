@@ -17,8 +17,7 @@ from typing import Any, Iterable
 import numpy as np
 import pandas as pd
 
-from .. import paths
-from ..stata_utils import to_numeric
+from core.stata_semantics.stata_utils import to_numeric
 
 
 def audit_frame(

@@ -1,6 +1,6 @@
 """Bolivian Child Labor Survey pipeline (ETI 2008 + ENNA 2016).
 
-Translates ``vendor/stata_dofiles/data_cleaning/Child Labor Survey/*.do``
+Translates ``studies/lakdawala2025/vendor/stata_dofiles/data_cleaning/Child Labor Survey/*.do``
 (9 files) into modular Python, ending in ``data/final/RW_child_labor_survey.parquet``.
 """
 

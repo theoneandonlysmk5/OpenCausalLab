@@ -1,7 +1,7 @@
 """
 Local CATE exploration on top of the age-14 DiDisc design.
 
-Pipeline (see docs/Leah_replication_causal_ML_audit.md):
+Pipeline (see studies/lakdawala2025/docs/Leah_replication_causal_ML_audit.md):
   1. Restrict to Table 3 local sample (triangular kernel > 0).
   2. Cross-fit residualize Y and T=xxw3 on nuisance design controls.
   3. Fit an honest causal forest on predetermined moderators only.
@@ -21,7 +21,7 @@ from econml.grf import CausalForest
 from sklearn.model_selection import KFold
 
 from . import paths
-from .stata_utils import to_numeric
+from core.stata_semantics.stata_utils import to_numeric
 from .table3 import CONTROLS, prepare_table3_sample
 
 # Predetermined / design moderators for the forest (variable plan USE).

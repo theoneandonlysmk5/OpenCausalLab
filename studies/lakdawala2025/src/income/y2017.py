@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 from ..persona.common import read_persona
-from ..stata_utils import replace_where, to_numeric
+from core.stata_semantics.stata_utils import replace_where, to_numeric
 from .common import (
     REMITTANCE_RATES_2017,
     build_labor_totals,

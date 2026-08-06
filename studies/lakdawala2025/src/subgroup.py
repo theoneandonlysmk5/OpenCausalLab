@@ -18,7 +18,7 @@ import statsmodels.formula.api as smf
 from scipy import stats
 
 from . import paths
-from .stata_utils import to_numeric
+from core.stata_semantics.stata_utils import to_numeric
 from .table3 import CONTROLS
 
 OUTCOME = "works"

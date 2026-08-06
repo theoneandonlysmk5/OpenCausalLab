@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 from .. import paths
-from ..stata_utils import inlist, inrange, replace_where, stata_str, to_numeric, winsor_high
+from core.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric, winsor_high
 from .common import persona_output_path, read_dta, write_persona_parquet
 
 

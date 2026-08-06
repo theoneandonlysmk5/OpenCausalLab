@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audits for remaining Table 5 wage / Table 6 firm-size / CL IPW discrepancies.
 
-Writes CSVs under ``data/final/validation/``. See ``docs/discrepancy_appendix.md``.
+Writes CSVs under ``data/final/validation/``. See ``studies/lakdawala2025/docs/discrepancy_appendix.md``.
 """
 
 from __future__ import annotations
@@ -13,14 +13,19 @@ import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+from pathlib import Path
+import sys
+
+CASE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = CASE_ROOT.parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(CASE_ROOT))
 
 from src import paths  # noqa: E402
 from src.child_labor.design import AGE_HI, AGE_LO, STATA_SEED, SUBSAMPLE_FRAC  # noqa: E402
 from src.child_labor.tables import load_cl, run_table5_cl  # noqa: E402
-from src.didisc_reg import DEMO, PERIOD, RD_W14, depto_year, didisc_formula, wls_cluster  # noqa: E402
-from src.stata_utils import to_numeric, winsor_high  # noqa: E402
+from core.causal.didisc_reg import DEMO, PERIOD, RD_W14, depto_year, didisc_formula, wls_cluster  # noqa: E402
+from core.stata_semantics.stata_utils import to_numeric, winsor_high  # noqa: E402
 from src.table3 import prepare_table3_sample  # noqa: E402
 
 OUT = paths.FINAL / "validation"

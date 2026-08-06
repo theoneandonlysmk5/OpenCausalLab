@@ -2,7 +2,7 @@
 Table 3 — age-14 difference-in-discontinuity (DiDisc) on work outcomes.
 
 Faithful Python translation of:
-  vendor/stata_dofiles/main_tables/Table_3_DDisc_Work.do
+  studies/lakdawala2025/vendor/stata_dofiles/main_tables/Table_3_DDisc_Work.do
 
 Stata specification (per outcome y):
   reg y xxw3 xxrw3 treatw14 runningw14 treatxrunningw14
@@ -23,7 +23,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 
 from . import paths
-from .stata_utils import to_numeric
+from core.stata_semantics.stata_utils import to_numeric
 
 YVARS = [
     "works",

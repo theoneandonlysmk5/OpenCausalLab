@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from src.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
+from core.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
 
 
 def test_stata_str_integers():

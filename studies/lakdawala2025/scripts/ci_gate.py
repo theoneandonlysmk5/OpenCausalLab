@@ -16,21 +16,27 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+CASE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = CASE_ROOT.parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(CASE_ROOT))
 
-from src.logutil import setup_logging  # noqa: E402
+from core.utils.logutil import setup_logging  # noqa: E402
 
 log = setup_logging("ci_gate")
 
-HH = ROOT / "data" / "final" / "HHsurvey.parquet"
-SUMMARY = Path(os.environ.get("GITHUB_STEP_SUMMARY", ROOT / "data" / "final" / "validation" / "ci_summary.md"))
+HH = CASE_ROOT / "data" / "final" / "HHsurvey.parquet"
+SUMMARY = Path(os.environ.get("GITHUB_STEP_SUMMARY", CASE_ROOT / "data" / "final" / "validation" / "ci_summary.md"))
 
 
 def run(cmd: list[str], *, label: str) -> None:
     log.info("=== %s ===", label)
     log.info("+ %s", " ".join(cmd))
-    subprocess.run(cmd, cwd=ROOT, check=True)
+    env = os.environ.copy()
+    env["PYTHONPATH"] = os.pathsep.join(
+        [str(REPO_ROOT), str(CASE_ROOT), env.get("PYTHONPATH", "")]
+    )
+    subprocess.run(cmd, cwd=CASE_ROOT, check=True, env=env)
 
 
 def append_summary(lines: list[str]) -> None:
@@ -42,7 +48,7 @@ def append_summary(lines: list[str]) -> None:
 def gate_committed_artifacts() -> None:
     import pandas as pd
 
-    led = pd.read_csv(ROOT / "data" / "final" / "tables" / "main_tables_ledger.csv")
+    led = pd.read_csv(CASE_CASE_ROOT / "data" / "final" / "tables" / "main_tables_ledger.csv")
     t3 = led.loc[led["result"] == "Table3 works xxw3"].iloc[0]
     assert abs(float(t3["python"]) + 0.039351) < 1e-4, t3.to_dict()
     n = led.loc[led["result"] == "Table3 N"].iloc[0]
@@ -52,17 +58,17 @@ def gate_committed_artifacts() -> None:
     # Fail only on unexpected blank statuses.
     assert led["status"].notna().all()
 
-    spec = pd.read_csv(ROOT / "data" / "final" / "validation" / "spec_equivalence_table3.csv")
+    spec = pd.read_csv(CASE_CASE_ROOT / "data" / "final" / "validation" / "spec_equivalence_table3.csv")
     bad = spec.loc[~spec["match"].astype(str).str.lower().isin(["true", "1"])]
     assert bad.empty, bad.to_dict("records")
 
     bw = pd.read_csv(
-        ROOT / "data" / "final" / "validation" / "bandwidth_sensitivity_table3_works.csv"
+        CASE_ROOT / "data" / "final" / "validation" / "bandwidth_sensitivity_table3_works.csv"
     )
     row12 = bw.loc[bw["bandwidth"] == 12].iloc[0]
     assert abs(float(row12["xxw3"]) + 0.039351) < 1e-4
 
-    coef = pd.read_csv(ROOT / "data" / "final" / "validation" / "table3_spec_coef_check.csv")
+    coef = pd.read_csv(CASE_CASE_ROOT / "data" / "final" / "validation" / "table3_spec_coef_check.csv")
     works = coef.loc[coef["outcome"] == "works"].iloc[0]
     assert abs(float(works["python_xxw3"]) + 0.039351) < 1e-4
     assert int(works["python_n"]) == 11991

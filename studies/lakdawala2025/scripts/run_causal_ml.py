@@ -6,8 +6,10 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+CASE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = CASE_ROOT.parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(CASE_ROOT))
 
 from src.causal_ml import run_causal_ml, write_causal_ml_outputs  # noqa: E402
 from src.table3 import load_hhsurvey  # noqa: E402

@@ -8,7 +8,7 @@ import pandas as pd
 import pytest
 
 from src import paths
-from src.validation.audit import GOLDEN
+from core.validation.audit import GOLDEN
 from src.validation.table3_audit import (
     build_table3_ledger,
     table3_sample_flow,

@@ -2,7 +2,7 @@
 
 How long it takes, what resources you need, how to verify you built the same files, and where randomness lives.
 
-Measured on Linux WSL2, Python 3.10.12, pinned [`requirements.txt`](../requirements.txt), with `HHsurvey.parquet` already built (2026-08).
+Measured on Linux WSL2, Python 3.10.12, pinned [`requirements.txt`](../../../requirements.txt), with `HHsurvey.parquet` already built (2026-08).
 
 ---
 
@@ -43,14 +43,14 @@ Stata wall times are not measured here (no Stata runtime). Python Table 3 ≈ **
 
 ## Deterministic seeds
 
-Single source of truth: [`src/seeds.py`](../src/seeds.py).
+Single source of truth: [`src/seeds.py`](../../../src/seeds.py).
 
 | Constant | Value | Used for |
 |----------|-------|----------|
 | `STATA_SEED` | `794758` | Child-labor IPW subsample (`set seed` in authors’ do-file) |
 | `OPENCAUSAL_SEED` | `20260804` | OpenCausalLab extensions (e.g. exploratory splits); **not** Table 3 |
 
-**Important:** NumPy `RandomState(794758)` ≠ Stata KISS `runiform()` with the same seed. Table 3 DiDisc does **not** use RNG. CL IPW weights are Near for that reason ([`docs/discrepancy_appendix.md`](discrepancy_appendix.md)).
+**Important:** NumPy `RandomState(794758)` ≠ Stata KISS `runiform()` with the same seed. Table 3 DiDisc does **not** use RNG. CL IPW weights are Near for that reason ([`discrepancy_appendix.md`](discrepancy_appendix.md)).
 
 ---
 

@@ -9,7 +9,7 @@ import pandas as pd
 import pyreadstat
 
 from .. import paths
-from ..stata_utils import inlist, inrange, recode_map, replace_where, stata_str, to_numeric
+from core.stata_semantics.stata_utils import inlist, inrange, recode_map, replace_where, stata_str, to_numeric
 
 
 def read_dta(path: Path | str) -> pd.DataFrame:

@@ -9,7 +9,7 @@ import pandas as pd
 import pyreadstat
 
 from .. import paths
-from ..stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
+from core.stata_semantics.stata_utils import inlist, inrange, replace_where, stata_str, to_numeric
 from .common import (
     binary_01,
     make_incomes,

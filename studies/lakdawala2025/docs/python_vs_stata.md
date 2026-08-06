@@ -2,7 +2,7 @@
 
 This page records **how** the two stacks differ. It is not a claim that one is better.
 
-Formal specification for the Lakdawala et al. case study remains the authors’ `.do` files under `vendor/stata_dofiles/`.
+Formal specification for the Lakdawala et al. case study remains the authors’ `.do` files under [`../vendor/stata_dofiles/`](../vendor/stata_dofiles/).
 
 | Aspect | Python (OpenCausalLab) | Stata (authors) |
 |--------|------------------------|-----------------|

@@ -10,28 +10,22 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Sheng Huo" }]
-dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["core*"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["."]
+testpaths = ["studies/lakdawala2025/tests"]
+pythonpath = [".", "studies/lakdawala2025"]
 
 [tool.coverage.run]
-source = ["src"]
+source = ["core", "studies/lakdawala2025/src"]
 branch = true
-
-[tool.coverage.report]
-omit = ["src/persona/y20*.py", "src/income/y20*.py"]
-show_missing = true
 
 [tool.ruff]
 line-length = 100
 target-version = "py310"
-src = ["src", "scripts", "tests"]
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "B", "UP"]
-ignore = ["E501"]
+src = ["core", "studies/lakdawala2025/src", "studies/lakdawala2025/scripts"]
 
 [tool.black]
 line-length = 100

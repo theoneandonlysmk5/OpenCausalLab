@@ -1,9 +1,5 @@
 name: replication-ci
 
-# pytest → rebuild Table 3 → verification → PASS
-# Full live rebuild when HHsurvey.parquet is available (checkout or secret URL).
-# Without microdata, unit tests + committed artifact gates still run.
-
 on:
   push:
     branches: [main]
@@ -15,18 +11,20 @@ jobs:
     name: Replication CI
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: studies/lakdawala2025
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
           cache: pip
 
       - name: Install dependencies
+        working-directory: .
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
@@ -34,34 +32,33 @@ jobs:
       - name: Restore HHsurvey (optional secret)
         env:
           HHSURVEY_PARQUET_URL: ${{ secrets.HHSURVEY_PARQUET_URL }}
+          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/studies/lakdawala2025
         run: |
           mkdir -p data/final
           if [ -n "${HHSURVEY_PARQUET_URL}" ]; then
-            echo "Downloading HHsurvey.parquet from secret URL…"
             curl -fsSL "${HHSURVEY_PARQUET_URL}" -o data/final/HHsurvey.parquet
-            ls -lh data/final/HHsurvey.parquet
-          elif [ -f data/final/HHsurvey.parquet ]; then
-            echo "HHsurvey.parquet already present in workspace"
-            ls -lh data/final/HHsurvey.parquet
-          else
-            echo "No microdata in CI — artifact gates only (see docs/verification.md)"
           fi
 
-      - name: Replication gate (pytest → Table 3 → verification → PASS)
+      - name: Replication gate
+        env:
+          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/studies/lakdawala2025
         run: python scripts/ci_gate.py
 
-      - name: Coverage (unit + committed-path tests)
+      - name: Coverage (unit)
+        working-directory: .
+        env:
+          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/studies/lakdawala2025
         run: |
-          pytest tests/test_stata_round.py -q --cov=src --cov-report=term-missing --cov-report=xml
+          pytest studies/lakdawala2025/tests/test_stata_round.py -q --cov=core --cov-report=xml
         continue-on-error: true
 
-      - name: Upload verification artifacts
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: validation-outputs
           path: |
-            data/final/tables/table3*.csv
-            data/final/validation/
+            studies/lakdawala2025/data/final/tables/table3*.csv
+            studies/lakdawala2025/data/final/validation/
             coverage.xml
           if-no-files-found: warn
