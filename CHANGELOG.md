@@ -13,7 +13,7 @@ for tagged releases (`VERSION`).
 - `ocl` / `python -m opencausallab` CLI (`study <id> table3|verify|check-data`)
 - `SECURITY.md` (microdata / credential disclosure)
 - Issue templates (discrepancy, study, data-layout, docs, framework bug) and PR checklist
-- Restricted-data CI job rename + secret/URL handling notes
+- Study README: five-minute review path, Known limitations (Table 6 Open), causal-ML maturity note, aggregate Table 3 figure
 
 ### Changed
 

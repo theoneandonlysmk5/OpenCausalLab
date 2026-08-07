@@ -19,7 +19,7 @@ This repository does **not** redistribute survey microdata. Place Dataverse extr
 |-----------------------|--------|
 | Design / sample / coefs / SEs / inference | Matches manuscript (N = 11,991 Exact) |
 
-Remaining Near/Open items (wage N, firm size) are documented in the case study — Table 3 success is not a claim that every cell matches.
+Remaining Near/Open items (wage N, firm size) are documented in the case study — Table 3 success is not a claim that every cell matches. For a five-minute faculty review, start at [`studies/lakdawala2025/README.md`](studies/lakdawala2025/README.md) (Scope → Verification → Discrepancy Appendix).
 
 ## Quick start (Lakdawala)
 
