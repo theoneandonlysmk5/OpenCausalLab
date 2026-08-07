@@ -1,84 +1,134 @@
 # OpenCausalLab
 
+> Learning causal inference by rebuilding published research in Python.
+
 [![replication-ci](https://github.com/theoneandonlysmk5/OpenCausalLab/actions/workflows/replication-ci.yml/badge.svg)](https://github.com/theoneandonlysmk5/OpenCausalLab/actions/workflows/replication-ci.yml)
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-**OpenCausalLab** is an open framework for independently verifying empirical economics research through transparent Python implementations.
+---
 
-```text
-opencausallab/         reusable library (experimental internal API before v1.0)
-studies/<paper>/       everything specific to one paper
-```
+## Why I started this project
 
-This repository does **not** redistribute survey microdata. Place Dataverse extracts locally under each study’s `data/raw/` (gitignored). Prefer release archives via `git archive`, not a working-tree ZIP.
+Hi! I'm a high school student who is interested in using quantitative methods to study causal inference.
 
-## First case study
+When I wanted to learn from an empirical economics paper that interested me, I found that its replication code was written in Stata. Since I didn't have a Stata license, I decided to rebuild the analysis in Python instead.
 
-**[`studies/lakdawala2025/`](studies/lakdawala2025/)** — Lakdawala, Martínez Heredia, Vera-Cossio, *The Effects of Expanding Worker Rights to Children* ([Dataverse](https://doi.org/10.7910/DVN/WJIQ6G)).
+The goal of this project is **not** to replace the original Stata code or claim that Python is better than Stata. Rebuilding the analysis from scratch forced me to understand each step of the original research instead of simply running the provided code.
 
-| Table 3 (main result) | Status |
-|-----------------------|--------|
-| Design / sample / coefs / SEs / inference | Matches manuscript (N = 11,991 Exact) |
+Instead, my goal is to understand the paper well enough to reproduce the published results using Python while preserving the original research design.
 
-Remaining Near/Open items (wage N, firm size) are documented in the case study — Table 3 success is not a claim that every cell matches. For a five-minute faculty review, start at [`studies/lakdawala2025/README.md`](studies/lakdawala2025/README.md) (Scope → Verification → Discrepancy Appendix).
+Along the way, I document every important implementation decision, every discrepancy I find, and how each issue is investigated and resolved.
 
-## Quick start (Lakdawala)
+---
 
-**Dependencies:** [`pyproject.toml`](pyproject.toml) is authoritative. `requirements.txt` only wraps `pip install -e ".[all]"` for tools that expect a requirements file.
+## Why make this public?
 
-```bash
-python -m pip install -e '.[replication,dev]'
-# optional: python -m pip install -e '.[causal-ml]'
+Many high school students and independent learners don't have access to Stata.
 
-# From the repo root (after placing Dataverse raw files / building HHsurvey):
-ocl study lakdawala2025 check-data
-ocl study lakdawala2025 table3
-ocl study lakdawala2025 verify
-# equivalent: python -m opencausallab study lakdawala2025 table3
-```
+I hope this repository makes it easier for anyone with Python to learn how empirical causal inference research works by studying a complete, transparent implementation.
 
-Public tests (no microdata):
+If this project helps another student get started with causal inference, then it has achieved its purpose.
 
-```bash
-pytest -q -m "not microdata and not causal_ml"
-```
+---
 
-## Framework docs
+## Current case study
 
-| Doc | Topic |
-|-----|-------|
-| [`docs/philosophy.md`](docs/philosophy.md) | Design equivalence vs software identity |
-| [`docs/architecture.md`](docs/architecture.md) | `opencausallab/` vs `studies/` |
-| [`docs/roadmap.md`](docs/roadmap.md) | What’s next |
-| [`SOFTWARE.md`](SOFTWARE.md) | Short software map |
-| [`SECURITY.md`](SECURITY.md) | Microdata / disclosure reporting |
+### Lakdawala et al. (2025)
 
-## Layout
+**The Effects of Expanding Worker Rights to Children**
+
+This repository currently contains one complete replication study: [`studies/lakdawala2025/`](studies/lakdawala2025/).
+
+Current status:
+
+| Item | Status |
+|------|--------|
+| Data pipeline | ✅ |
+| Tables 1–4 | ✅ Reproduced |
+| Table 5 | 🟡 Minor documented differences |
+| Table 6 | 🟡 One documented open issue |
+
+The main empirical results have been reproduced, and the remaining differences are documented rather than hidden.
+
+For a five-minute review of the case study, start at the [study README](studies/lakdawala2025/README.md).
+
+---
+
+## Repository structure
 
 ```text
 OpenCausalLab/
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── pyproject.toml          # dependency source of truth
-├── requirements.txt        # thin wrapper → pip install -e ".[all]"
-├── docs/
-├── tests/opencausallab/
-├── opencausallab/
+├── opencausallab/          # reusable Python utilities
 ├── studies/
-│   └── lakdawala2025/
-└── examples/
+│   └── lakdawala2025/      # first replication project
+├── docs/
+├── examples/
+└── tests/
 ```
 
-## Development note
+---
 
-This repository was developed using AI-assisted programming tools (Cursor Agent) for code generation and refactoring.
+## Documentation
 
-All econometric design decisions, validation methodology, discrepancy analysis, and scientific conclusions were independently designed, verified, and reviewed by the repository author.
+If you'd like to understand the replication process, I recommend reading these documents in order:
 
-## License
+1. [Replication Scope](studies/lakdawala2025/docs/replication_scope.md)
+2. [Design](studies/lakdawala2025/docs/DESIGN.md)
+3. [Verification](studies/lakdawala2025/docs/verification.md)
+4. [Discrepancy Appendix](studies/lakdawala2025/docs/discrepancy_appendix.md)
 
-Code and documentation: [MIT](LICENSE). Microdata and vendor `.do` files retain their original terms — see [`studies/lakdawala2025/vendor/README.md`](studies/lakdawala2025/vendor/README.md). The MIT license does **not** cover `vendor/` or survey data.
+These explain what was replicated, how the Python implementation was validated, and which differences are still under investigation.
 
-## Citation
+If you only have a few minutes, I recommend starting with the [Verification](studies/lakdawala2025/docs/verification.md) document.
 
-See [`CITATION.cff`](CITATION.cff). Cite Lakdawala et al. separately for the empirical findings.
+---
+
+## Data
+
+This repository **does not include** the original survey microdata.
+
+The original replication package is available from Harvard Dataverse:
+
+https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WJIQ6G
+
+The original Stata `.do` files are included unchanged as reference materials for verification.
+
+---
+
+## Quick start
+
+```bash
+python -m pip install -e '.[replication,dev]'
+```
+
+After installation, the `ocl` command-line tool can reproduce and validate the study:
+
+```bash
+ocl study lakdawala2025 table3
+ocl study lakdawala2025 verify
+```
+
+(`pyproject.toml` is the dependency source of truth.)
+
+---
+
+## What I hope to learn next
+
+This project is still a work in progress.
+
+Some topics I'm interested in exploring are:
+
+- heterogeneous treatment effects
+- Double Machine Learning
+- Causal Forests
+- modern causal inference methods
+- replicate more empirical economics papers in Python
+
+---
+
+## Feedback
+
+I'm still learning, so I'd really appreciate feedback, corrections, or suggestions. If you notice a bug, find a discrepancy, or have ideas for improving the implementation, please feel free to open an issue or contact me.
+
+Thanks for visiting OpenCausalLab!
