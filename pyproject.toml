@@ -47,6 +47,9 @@ all = [
     "black>=24",
 ]
 
+[project.scripts]
+ocl = "opencausallab.cli:main"
+
 [tool.setuptools.packages.find]
 include = ["opencausallab*"]
 

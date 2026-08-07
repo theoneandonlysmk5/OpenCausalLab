@@ -6,6 +6,17 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Two tiers:
+#   public          — no microdata; unit tests + committed artifact gate
+#   with-microdata  — GitHub-hosted runner; optional private HHsurvey download
+#
+# Restricted-data job rules:
+#   - Use a short-lived / access-controlled URL in secrets.HHSURVEY_PARQUET_URL
+#   - Never echo the secret URL
+#   - Never upload .parquet / .dta as workflow artifacts
+#   - Do not print row-level records to logs
+#   - Confirm Dataverse/terms allow temporary processing on CI before enabling
+
 jobs:
   public:
     name: Public CI (no microdata)
@@ -45,7 +56,7 @@ jobs:
         run: python scripts/ci_gate.py
 
   with-microdata:
-    name: Local-data CI (optional HHsurvey)
+    name: Restricted-data CI (optional HHsurvey)
     runs-on: ubuntu-latest
     timeout-minutes: 45
     needs: public
@@ -68,13 +79,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
-      - name: Restore HHsurvey (optional secret)
+      - name: Restore HHsurvey (optional private artifact)
         env:
           HHSURVEY_PARQUET_URL: ${{ secrets.HHSURVEY_PARQUET_URL }}
         run: |
           mkdir -p data/final
           if [ -n "${HHSURVEY_PARQUET_URL}" ]; then
+            # URL must not be printed; prefer short-lived signed links.
             curl -fsSL "${HHSURVEY_PARQUET_URL}" -o data/final/HHsurvey.parquet
+            unset HHSURVEY_PARQUET_URL
+            echo "HHsurvey.parquet restored ($(wc -c < data/final/HHsurvey.parquet) bytes)."
           else
             echo "No HHSURVEY_PARQUET_URL — gate will skip live rebuild."
           fi
@@ -87,3 +101,4 @@ jobs:
           if [ -f data/final/HHsurvey.parquet ]; then
             pytest -q -m "not causal_ml" --tb=short
           fi
+        # Do not upload data/final/*.parquet as artifacts.

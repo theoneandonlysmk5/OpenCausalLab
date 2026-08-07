@@ -5,7 +5,7 @@
 **OpenCausalLab** is an open framework for independently verifying empirical economics research through transparent Python implementations.
 
 ```text
-opencausallab/                  reusable library (experimental internal API before v1.0)
+opencausallab/         reusable library (experimental internal API before v1.0)
 studies/<paper>/       everything specific to one paper
 ```
 
@@ -23,14 +23,17 @@ Remaining Near/Open items (wage N, firm size) are documented in the case study �
 
 ## Quick start (Lakdawala)
 
+**Dependencies:** [`pyproject.toml`](pyproject.toml) is authoritative. `requirements.txt` only wraps `pip install -e ".[all]"` for tools that expect a requirements file.
+
 ```bash
 python -m pip install -e '.[replication,dev]'
-# optional extensions: python -m pip install -e '.[causal-ml]'
-cd studies/lakdawala2025
-python scripts/check_data_layout.py   # after placing Dataverse raw files
-# with HHsurvey.parquet already built (or after ETL):
-python scripts/run_table3.py
-python scripts/ci_gate.py
+# optional: python -m pip install -e '.[causal-ml]'
+
+# From the repo root (after placing Dataverse raw files / building HHsurvey):
+ocl study lakdawala2025 check-data
+ocl study lakdawala2025 table3
+ocl study lakdawala2025 verify
+# equivalent: python -m opencausallab study lakdawala2025 table3
 ```
 
 Public tests (no microdata):
@@ -47,6 +50,7 @@ pytest -q -m "not microdata and not causal_ml"
 | [`docs/architecture.md`](docs/architecture.md) | `opencausallab/` vs `studies/` |
 | [`docs/roadmap.md`](docs/roadmap.md) | What’s next |
 | [`SOFTWARE.md`](SOFTWARE.md) | Short software map |
+| [`SECURITY.md`](SECURITY.md) | Microdata / disclosure reporting |
 
 ## Layout
 
@@ -55,10 +59,10 @@ OpenCausalLab/
 ├── README.md
 ├── LICENSE
 ├── CITATION.cff
-├── pyproject.toml
-├── requirements.txt
+├── pyproject.toml          # dependency source of truth
+├── requirements.txt        # thin wrapper → pip install -e ".[all]"
 ├── docs/
-├── tests/opencausallab/            # reusable library unit tests
+├── tests/opencausallab/
 ├── opencausallab/
 ├── studies/
 │   └── lakdawala2025/

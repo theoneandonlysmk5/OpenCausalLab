@@ -11,12 +11,10 @@ export PYTHONPATH="$(pwd):$(pwd)/studies/lakdawala2025"
 # Public tests (no microdata required):
 pytest -q -m "not microdata and not causal_ml"
 
-# Lakdawala case study (with microdata if available):
-cd studies/lakdawala2025
-python scripts/check_data_layout.py
-python scripts/run_validation_audit.py
-python scripts/run_verification.py
-python scripts/ci_gate.py
+# Root-friendly study commands:
+ocl study lakdawala2025 check-data
+ocl study lakdawala2025 table3
+ocl study lakdawala2025 verify
 ```
 
 Markers:

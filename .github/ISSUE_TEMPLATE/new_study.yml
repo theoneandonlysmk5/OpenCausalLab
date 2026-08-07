@@ -1,0 +1,40 @@
+name: New study proposal
+description: Propose adding a studies/<paper>/ case study
+title: "[study] "
+labels: ["enhancement", "study"]
+body:
+  - type: input
+    id: paper
+    attributes:
+      label: Paper title / citation
+    validations:
+      required: true
+  - type: input
+    id: doi
+    attributes:
+      label: Paper or Dataverse DOI
+  - type: dropdown
+    id: design
+    attributes:
+      label: Primary design
+      options:
+        - Difference-in-discontinuities / RD
+        - Difference-in-differences
+        - IV / LATE
+        - Other / mixed
+    validations:
+      required: true
+  - type: textarea
+    id: data_access
+    attributes:
+      label: Data access
+      description: Public Dataverse? Restricted? Can OpenCausalLab redistribute code but not data?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Proposed verification scope
+      description: Which tables/figures are in-scope for v1 of the case study?
+    validations:
+      required: true

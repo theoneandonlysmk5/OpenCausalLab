@@ -11,4 +11,7 @@ Framework docs:
 Lakdawala case study: [`studies/lakdawala2025/`](studies/lakdawala2025/).
 
 `opencausallab/` is an **experimental internal API**. Backward compatibility is not
-guaranteed before v1.0; prefer importing through case-study scripts until then.
+guaranteed before v1.0; prefer importing through case-study scripts or the `ocl`
+CLI until then.
+
+Security / microdata disclosure: [`SECURITY.md`](SECURITY.md).

@@ -1,0 +1,34 @@
+name: Data-layout problem
+description: Missing/misplaced Dataverse files or check_data_layout failures
+title: "[data-layout] "
+labels: ["data"]
+body:
+  - type: input
+    id: study
+    attributes:
+      label: Study ID
+      placeholder: lakdawala2025
+    validations:
+      required: true
+  - type: textarea
+    id: expected_path
+    attributes:
+      label: Expected relative path(s)
+      placeholder: data/raw/household/2012/…
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What you see instead
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command output
+      description: Paste `ocl study lakdawala2025 check-data` (no file contents)
+      render: text
+  - type: markdown
+    attributes:
+      value: Do not upload `.dta` files or paste microdata into this issue.

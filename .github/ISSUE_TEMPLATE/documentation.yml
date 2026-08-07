@@ -1,0 +1,21 @@
+name: Documentation correction
+description: Fix docs, badges, citations, or wording
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: path
+    attributes:
+      label: Doc path or URL
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested correction

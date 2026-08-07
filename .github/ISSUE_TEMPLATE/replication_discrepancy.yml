@@ -1,0 +1,83 @@
+name: Replication discrepancy
+description: Report Exact / Near / Open mismatch vs manuscript or Stata
+title: "[discrepancy] "
+labels: ["discrepancy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Classify the finding using OpenCausalLab vocabulary: **Exact**, matches manuscript values, **Near**, or **Open**.
+        Do **not** paste microdata rows, IDs, or signed URLs.
+  - type: input
+    id: study
+    attributes:
+      label: Study ID
+      description: e.g. lakdawala2025
+      placeholder: lakdawala2025
+    validations:
+      required: true
+  - type: input
+    id: table_cell
+    attributes:
+      label: Paper table / cell
+      description: e.g. Table 3, works, xxw3 coefficient
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Expected value (manuscript / Stata)
+    validations:
+      required: true
+  - type: input
+    id: observed
+    attributes:
+      label: Observed value (Python)
+    validations:
+      required: true
+  - type: input
+    id: sample_n
+    attributes:
+      label: Sample N
+      placeholder: 11991
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, install command (`pip install -e '.[replication,dev]'`, etc.)
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command executed
+      description: Exact command(s) that produced the result
+      placeholder: ocl study lakdawala2025 table3
+    validations:
+      required: true
+  - type: dropdown
+    id: microdata
+    attributes:
+      label: Were microdata available locally?
+      options:
+        - "Yes — HHsurvey / raw Dataverse present"
+        - "No — used committed artifacts only"
+        - "Partial / unsure"
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Proposed classification
+      options:
+        - Exact
+        - Matches manuscript values
+        - Near
+        - Open
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Likely cause, related docs, links to verification.md / discrepancy_appendix.md

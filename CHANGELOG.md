@@ -8,12 +8,19 @@ for tagged releases (`VERSION`).
 
 ## [Unreleased]
 
+### Added
+
+- `ocl` / `python -m opencausallab` CLI (`study <id> table3|verify|check-data`)
+- `SECURITY.md` (microdata / credential disclosure)
+- Issue templates (discrepancy, study, data-layout, docs, framework bug) and PR checklist
+- Restricted-data CI job rename + secret/URL handling notes
+
 ### Changed
 
 - **Major layout:** reusable library in `opencausallab/`; Lakdawala paper fully under `studies/lakdawala2025/` (data, src, scripts, tests, docs, vendor)
 - Framework docs at `docs/{philosophy,architecture,roadmap}.md`; root README is framework-first
-- `pyproject.toml` declares runtime deps + optional extras (`replication`, `causal-ml`, `dev`); `requires-python = ">=3.10,<3.13"`
-- Public CI matrix (3.10–3.12) runs `pytest -m "not microdata and not causal_ml"`; optional microdata job
+- `pyproject.toml` is the dependency source of truth; `requirements.txt` only wraps `-e ".[all]"`
+- Public CI matrix (3.10–3.12) runs `pytest -m "not microdata and not causal_ml"`; optional restricted-data job
 - Stop tracking row-level validation dumps (`table5_wage_obs_flags.csv`, `table6_firm_size_contributions.csv`)
 
 ### Fixed

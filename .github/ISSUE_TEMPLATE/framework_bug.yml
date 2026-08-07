@@ -1,0 +1,29 @@
+name: Framework bug
+description: Bug in opencausallab/ library, CLI, packaging, or CI (not a paper cell)
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, `pip show opencausallab`, relevant extras
+  - type: markdown
+    attributes:
+      value: If the bug only appears with microdata, say so—but do not attach microdata.

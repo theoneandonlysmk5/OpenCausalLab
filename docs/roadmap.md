@@ -3,6 +3,7 @@
 ## Near term
 
 - [ ] Stabilize `opencausallab/` API (versioned, documented)
+- [x] Root-friendly study CLI (`ocl study …`)
 - [ ] Second case study scaffold (`studies/_template/`)
 - [ ] Optional R twin estimator for Table 3
 - [ ] Resolve Lakdawala Table 6 firm-size Open item (needs Stata export)
