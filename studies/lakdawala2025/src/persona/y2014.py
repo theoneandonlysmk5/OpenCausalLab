@@ -18,64 +18,64 @@ from .common import (
 )
 
 PERSONA_2014_KEEP = [
-    "id",
-    "folio",
-    "depto",
-    "area",
-    "sex",
-    "age",
-    "civil_status",
-    "estudia",
-    "lee_escribe",
-    "esc",
-    "enrollment",
-    "level_enrolled",
-    "enrolled_public",
-    "work",
-    "work_lastweek",
-    "ocu_cat",
-    "sector",
-    "hours_worked_day",
-    "days_worked_week",
-    "ytotal",
-    "ytrabajo",
-    "yhogar",
-    "yhogarpc",
-    "factor",
-    "t",
-    "upm",
-    "rel_jefe",
-    "idioma",
-    "idioma_nativo",
-    "birth_day",
-    "birth_month",
-    "birth_year",
-    "pueblo",
-    "ocu_cat2",
-    "mun",
-    "prov",
-    "job_location",
-    "number_workers",
-    "places_taxes2",
-    "contract",
-    "type_est",
-    "encuesta_ano",
-    "encuesta_mes",
-    "encuesta_dia",
-    "poor",
-    "poor_xtr",
-    "pov_line",
-    "pov_xtr_line",
-    "recibe_desayuno",
-    "recibe_bono_juancito",
-    "nocturna",
-    "health_insurance",
-    "job_main_ocupation",
-    "job_specifics_tasks",
-    "s5c_13",
-    "s5c_14",
-    "s5c_15",
-    "s5c_16",
+    "id",  # unique person id: folio + within-household member number
+    "folio",  # household id
+    "depto",  # department (1–9: Chuquisaca … Pando)
+    "area",  # urban / rural
+    "sex",  # 1 = male, 2 = female (EH coding)
+    "age",  # age in completed years (survey report, not month running var)
+    "civil_status",  # marital / civil status
+    "estudia",  # 1 if currently studying (0 if not / not asked)
+    "lee_escribe",  # 1 if can read and write, 0 if not
+    "esc",  # years of schooling (INE constructed `e`)
+    "enrollment",  # 1 if currently enrolled in school, 0 if not
+    "level_enrolled",  # grade 1–12 if in primary or secondary
+    "enrolled_public",  # 1 if public or convenio school
+    "work",  # 1 if employed (incl. unpaid/family/temporarily off), 0 if unemployed
+    "work_lastweek",  # 1 if worked last week, 0 if no
+    "ocu_cat",  # 8-way occupation: laborer, employee, own-account, employer, …, domestic
+    "sector",  # 11-way industry of main job (CAEB collapsed; 1=ag, 2=mining, 5=construction)
+    "hours_worked_day",  # usual hours per day (hours + minutes/60)
+    "days_worked_week",  # usual days worked per week
+    "ytotal",  # total personal income (yper); 0 stored as missing
+    "ytrabajo",  # labor / work earnings (ylab), monthly Bs; 0 stored as missing
+    "yhogar",  # household income
+    "yhogarpc",  # household income per capita
+    "factor",  # survey expansion weight
+    "t",  # survey year (2014)
+    "upm",  # primary sampling unit (municipality merge key)
+    "rel_jefe",  # relation to household head (1 = head)
+    "idioma",  # childhood language: 1 Quechua, 2 Aymara, 3 Spanish, 4 Guaraní, 5 other native, 6 foreign, 7 none
+    "idioma_nativo",  # 1 if speaks a native language, 0 otherwise
+    "birth_day",  # day of birth
+    "birth_month",  # month of birth
+    "birth_year",  # year of birth
+    "pueblo",  # indigenous people: 1 Quechua, 2 Aymara, 3 other, 0 none
+    "ocu_cat2",  # 4-way occupation: wage/coop/domestic, own-account, paid employer, unpaid family
+    "mun",  # municipality code
+    "prov",  # province code
+    "job_location",  # 1 home, 2 fixed outside home, 3 roaming, 4 other, 5 does not work
+    "number_workers",  # number of workers at the establishment
+    "places_taxes2",  # coarser tax: 1 yes, 2 no/in process, 3 don't know
+    "contract",  # 1 signed term contract, 2 verbal for a job, 3 plant staff, 4 no contract
+    "type_est",  # establishment type: 1 private, 2 public, 3 NGO
+    "encuesta_ano",  # interview year
+    "encuesta_mes",  # interview month
+    "encuesta_dia",  # interview day
+    "poor",  # 1 if below the poverty line (p0==1); missing p0 → 0
+    "poor_xtr",  # 1 if below the extreme poverty line (pext0==1)
+    "pov_line",  # poverty line in bolivianos (z)
+    "pov_xtr_line",  # extreme poverty line in bolivianos (zext)
+    "recibe_desayuno",  # 1 if receives school breakfast
+    "recibe_bono_juancito",  # 1 if receives Bono Juancito Pinto (CCT receipt, not eligibility)
+    "nocturna",  # 1 if enrolled in night / adult education
+    "health_insurance",  # 1 if has health insurance, 0 if not (raw 2 recoded to 0)
+    "job_main_ocupation",  # free-text main occupation title
+    "job_specifics_tasks",  # free-text description of job tasks
+    "s5c_13",  # 2014 media/ICT item (kept for merge)
+    "s5c_14",  # household phone use (2014)
+    "s5c_15",  # household PC use (2014)
+    "s5c_16",  # household internet use (2014)
 ]
 
 _ENCODE_NATIVE_CODES = [3, 5, 8, 10, 11, 14, 15, 16, 19, 20, 22, 23]
