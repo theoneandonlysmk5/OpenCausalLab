@@ -153,17 +153,9 @@ EH_cleaned_persona ──► tempfile ch_ages (hh_agecat1–4)
 
 ---
 
-## OpenCausalLab Python module map (planned)
+## OpenCausalLab Python module map
 
-| Stata stage | Future Python module | Priority |
-|-------------|----------------------|----------|
-| Persona year harmonize + compile + clean | `src/household.py` | **P0** — 2012 relabel done |
-| Income year harmonize + compile + clean | `src/income/` | **P0** — 2012–2017 done |
-| Expenses year harmonize + compile + clean | `src/expenses.py` | P2 (appendix expenditure) |
-| UPM + municipality merges | `src/municipality.py` | **P0** |
-| `3. Preparing for analysis.do` | `src/hhsurvey.py` | **P0 — done** |
-| Child Labor Survey 1–9 | `src/child_labor_survey.py` | P1 (risk/injury) |
-| Cross-module checks | `src/validation.py` | every module |
+File-by-file `.do` → `.py` mapping: [`stata_python_map.md`](stata_python_map.md). Status notes below stay here because they record row counts and outputs.
 
 ### Module A status (Persona 2012–2019 + compile/clean)
 

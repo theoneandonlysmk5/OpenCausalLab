@@ -57,7 +57,7 @@ One-page answer to: what this repository claims, what it does not claim, and whe
 
 ## Evidence supporting equivalence
 
-1. Code map — every main `.do` → Python module  
+1. Code map — every main `.do` → Python module ([`stata_python_map.md`](stata_python_map.md))  
 2. Spec checklist — outcomes, RV, kernel, BW, weights, FE, cluster  
 3. Data audits — merge rates; `len(HHsurvey) ≠ len(e(sample))`  
 4. Statistical — Table 3 matches manuscript; bandwidth robustness  

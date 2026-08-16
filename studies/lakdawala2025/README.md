@@ -74,4 +74,5 @@ python scripts/ci_gate.py
 2. [replication_scope.md](docs/replication_scope.md)  
 3. [verification.md](docs/verification.md)  
 4. [discrepancy_appendix.md](docs/discrepancy_appendix.md)  
-5. [REPRODUCTION.md](docs/REPRODUCTION.md)
+5. [REPRODUCTION.md](docs/REPRODUCTION.md)  
+6. [stata_python_map.md](docs/stata_python_map.md) — `.do` → `.py` file map

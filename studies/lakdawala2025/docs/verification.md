@@ -103,7 +103,7 @@ The primary objective is to establish **design equivalence** rather than softwar
 
 ### Code-level: design map
 
-Authors’ `.do` files under `studies/lakdawala2025/vendor/stata_dofiles/` are the formal specification. Every main stage maps to a Python module (persona / income / `hhsurvey` / `table3` / `main_tables` / `child_labor`). Semantic quirks that were verified to matter: Stata `round`, float32 medians, attendance overwrite, equal-var `ttest`, indig fill.
+Authors’ `.do` files under `studies/lakdawala2025/vendor/stata_dofiles/` are the formal specification. Every main stage maps to a Python module (persona / income / `hhsurvey` / `table3` / `main_tables` / `child_labor`); file-by-file: [`stata_python_map.md`](stata_python_map.md). Semantic quirks that were verified to matter: Stata `round`, float32 medians, attendance overwrite, equal-var `ttest`, indig fill.
 
 ### Spec equivalence (Table 3)
 
