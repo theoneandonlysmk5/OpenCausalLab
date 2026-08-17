@@ -141,7 +141,7 @@ def _stata_merge_drop_using_only(
     left: pd.DataFrame, right: pd.DataFrame, on: list[str] | str, how: str = "left"
 ) -> pd.DataFrame:
     """``merge m:1 ... ; drop if _merge==2`` — keep master + matched, not using-only."""
-    merged = left.merge(right, on=on, how=how, indicator="_merge")
+    merged = left.merge(right, on=on, how=how, indicator="_merge", validate="m:1")
     merged = merged.loc[merged["_merge"] != "right_only"].copy()
     merged = merged.drop(columns="_merge")
     return merged
@@ -181,7 +181,7 @@ def build_travel_tomerge(travel_path: Path | None = None) -> pd.DataFrame:
 def build_ch_income(persona: pd.DataFrame, income: pd.DataFrame) -> pd.DataFrame:
     """HH-level income tempfile (Stata ``ch_income`` block)."""
     inc_cols = ["id_year", "y_wl_earnings", "y_household"]
-    merged = persona.merge(income[inc_cols], on="id_year", how="outer")
+    merged = persona.merge(income[inc_cols], on="id_year", how="outer", validate="m:1")
 
     merged["hhsize"] = merged.groupby(["folio", "year"], dropna=False)["folio"].transform("count")
 

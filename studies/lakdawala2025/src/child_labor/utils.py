@@ -21,7 +21,7 @@ def merge_drop_using_only(
     left: pd.DataFrame, right: pd.DataFrame, on: list[str] | str, how: str = "left"
 ) -> pd.DataFrame:
     """``merge ...; drop if _merge==2`` — keep master + matched rows, not using-only."""
-    merged = left.merge(right, on=on, how=how, indicator="_merge")
+    merged = left.merge(right, on=on, how=how, indicator="_merge", validate="m:1")
     merged = merged.loc[merged["_merge"] != "right_only"].copy()
     return merged.drop(columns="_merge")
 

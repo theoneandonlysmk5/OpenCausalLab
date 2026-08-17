@@ -52,7 +52,7 @@ Optional install from repo root: `python -m pip install -e '.[causal-ml]'`.
 
 ## Run
 
-From the **repo root** (preferred):
+From the **repo root** (preferred) when analysis files already exist:
 
 ```bash
 python -m pip install -e '.[replication,dev]'
@@ -67,6 +67,8 @@ Or from this directory:
 python scripts/run_table3.py
 python scripts/ci_gate.py
 ```
+
+**Full rebuild** from raw Dataverse (persona → income → HHsurvey → tables → CI): see [REPRODUCTION.md — Full rebuild from raw Dataverse](docs/REPRODUCTION.md#full-rebuild-from-raw-dataverse).
 
 ## Docs
 

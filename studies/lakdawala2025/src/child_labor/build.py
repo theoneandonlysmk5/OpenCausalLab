@@ -40,7 +40,7 @@ def _prepare_2008() -> pd.DataFrame:
 
     # Birth dates live on the HH roster; merge onto child by id (do-file 3).
     bdate = hh[["id", "bdate_dd", "bdate_mm", "bdate_yy"]].drop_duplicates("id")
-    child = child.merge(bdate, on="id", how="left")
+    child = child.merge(bdate, on="id", how="left", validate="m:1")
     child = child_vars_2008(child)
     child = add_age_survey_2008(child)
     return build_rd_2008(child, hh, mun)

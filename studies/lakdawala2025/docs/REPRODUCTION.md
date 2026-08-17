@@ -84,10 +84,41 @@ Parquet writes through `src.provenance.write_parquet` also emit `*.provenance.js
 
 ---
 
-## Quick verify
+## Full rebuild from raw Dataverse
+
+Use this after changing ETL/merge logic (or a fresh Dataverse extract). Activate the project venv first, then from the **repo root**:
 
 ```bash
-pip install -r requirements.txt
+source /path/to/.venv/bin/activate   # e.g. ../.venv relative to OpenCausalLab
+python -m pip install -e '.[replication,dev]'
+ocl study lakdawala2025 check-data
+
+cd studies/lakdawala2025
+python scripts/run_persona_all_years.py
+python scripts/run_persona_compile_clean.py
+python scripts/run_income_all_years.py
+python scripts/run_income_compile_clean.py
+python scripts/run_hhsurvey.py
+python scripts/run_child_labor.py
+python scripts/run_table3.py
+python scripts/run_main_tables.py
+python scripts/run_cl_tables.py
+python scripts/run_verification.py
+python scripts/ci_gate.py
+python scripts/hash_outputs.py
+```
+
+Expected targets after a clean run: `HHsurvey` ≈ 125,368 rows; Table 3 N = 11,991; `ci_gate.py` prints `REPLICATION CI: PASS`.
+
+Dataset lineage: [`pipeline.md`](pipeline.md). Stata ↔ Python file map: [`stata_python_map.md`](stata_python_map.md).
+
+---
+
+## Quick verify
+
+When `HHsurvey.parquet` (and related finals) already exist:
+
+```bash
 python scripts/hash_outputs.py          # compare SHA-256
 python scripts/run_table3.py            # ~4 s
 python scripts/ci_gate.py               # full PASS gate

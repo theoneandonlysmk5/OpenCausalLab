@@ -106,7 +106,7 @@ def _load_merged_2014(
     persona = read_dta(persona_path)
     viv = viv.assign(folio=stata_str(viv["folio"]))
     persona = persona.assign(folio=stata_str(persona["folio"]))
-    return persona.merge(viv, on="folio", how="left")
+    return persona.merge(viv, on="folio", how="left", validate="m:1")
 
 
 def harmonize_persona_2014(raw_path: Path | None = None) -> pd.DataFrame:

@@ -35,7 +35,9 @@ def _merge_upm_mm(left: pd.DataFrame, upm_path: Path) -> pd.DataFrame:
     # UPM crosswalks are unique on upm → behaves like m:1
     overlap = [c for c in right.columns if c in left.columns and c != "upm"]
     right = right.drop(columns=overlap, errors="ignore")
-    merged = left.merge(right, on="upm", how="left", suffixes=("", "_upm"))
+    merged = left.merge(
+        right, on="upm", how="left", suffixes=("", "_upm"), validate="m:1"
+    )
     return merged
 
 

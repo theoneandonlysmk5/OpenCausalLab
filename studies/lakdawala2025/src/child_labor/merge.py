@@ -84,9 +84,9 @@ def build_rd_2008(
     comp = household_composition(hh)
     agecat = household_age_categories(hh)
 
-    out = out.merge(head_vars, on="folio", how="left")
-    out = out.merge(comp, on="folio", how="left")
-    out = out.merge(agecat, on="folio", how="left")
+    out = out.merge(head_vars, on="folio", how="left", validate="m:1")
+    out = out.merge(comp, on="folio", how="left", validate="m:1")
+    out = out.merge(agecat, on="folio", how="left", validate="m:1")
     out = remove_own_age_bucket(out, age_col="c_age")
 
     return out
@@ -153,9 +153,9 @@ def build_rd_2016(
     comp = household_composition(hh)
     agecat = household_age_categories(hh)
 
-    out = out.merge(head_vars, on="folio", how="left")
-    out = out.merge(comp, on="folio", how="left")
-    out = out.merge(agecat, on="folio", how="left")
+    out = out.merge(head_vars, on="folio", how="left", validate="m:1")
+    out = out.merge(comp, on="folio", how="left", validate="m:1")
+    out = out.merge(agecat, on="folio", how="left", validate="m:1")
     out = remove_own_age_bucket(out, age_col="c_age")
 
     return out

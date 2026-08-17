@@ -27,11 +27,11 @@ def main() -> None:
     out = CASE_ROOT / "data" / "final" / "validation" / "output_hashes.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     payload = {
-        "git_hash": git_hash(ROOT),
+        "git_hash": git_hash(REPO_ROOT),
         "files": {},
     }
     for path in TARGETS:
-        rel = str(path.relative_to(ROOT))
+        rel = str(path.relative_to(CASE_ROOT))
         if not path.exists():
             payload["files"][rel] = {"missing": True}
             print(f"MISSING  {rel}")

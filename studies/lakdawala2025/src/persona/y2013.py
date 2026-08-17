@@ -99,12 +99,12 @@ def _load_merged_2013(
     viv["encuesta_ano"] = 2013
     viv = viv.rename(columns={"c_mes": "encuesta_mes", "c_dia": "encuesta_dia"})
     persona, _ = pyreadstat.read_dta(str(persona_path))
-    # Stata merge 1:m on folio; keep person rows (matched + persona-only if any)
+    # Stata: many persons per folio, one vivienda row (pandas m:1)
     folio_viv = stata_str(viv["folio"])
     folio_per = stata_str(persona["folio"])
     viv = viv.assign(folio=folio_viv)
     persona = persona.assign(folio=folio_per)
-    return persona.merge(viv, on="folio", how="left")
+    return persona.merge(viv, on="folio", how="left", validate="m:1")
 
 
 def harmonize_persona_2013(raw_path: Path | None = None) -> pd.DataFrame:

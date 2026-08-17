@@ -195,6 +195,7 @@ def main() -> None:
             persona.loc[persona["name"].str.startswith("persona_"), ["year", "rows"]],
             on="year",
             how="left",
+            validate="m:1",
         )
         merge["delta_raw_minus_relabel"] = merge["raw_persona_rows"] - merge["rows"]
         merge.to_csv(out_dir / "raw_vs_relabel_counts.csv", index=False)

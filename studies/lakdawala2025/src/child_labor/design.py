@@ -196,7 +196,7 @@ def add_travel_heterogeneity(df: pd.DataFrame) -> pd.DataFrame:
     travel = travel[[c for c in keep if c in travel.columns]].copy()
     travel["cod_secc"] = to_numeric(travel["cod_secc"])
     out["cod_secc"] = to_numeric(out["cod_secc"])
-    out = out.merge(travel, on="cod_secc", how="left")
+    out = out.merge(travel, on="cod_secc", how="left", validate="m:1")
     out = out.rename(
         columns={
             "abovemed_time": "het_time",

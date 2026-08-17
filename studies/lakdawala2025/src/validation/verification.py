@@ -191,7 +191,7 @@ def merge_audit_persona_income() -> pd.DataFrame:
             [{"merge": "persona_income", "status": "income_missing_id_year"}]
         )
     right = inc[["id_year"]].drop_duplicates()
-    m = left.merge(right, on="id_year", how="outer", indicator=True)
+    m = left.merge(right, on="id_year", how="outer", indicator=True, validate="m:1")
     counts = m["_merge"].value_counts()
     return pd.DataFrame(
         [
@@ -217,7 +217,7 @@ def merge_audit_travel(hh: pd.DataFrame) -> pd.DataFrame:
     right = to_numeric(travel["cod_secc"]).dropna().drop_duplicates()
     ldf = pd.DataFrame({"cod_secc": left})
     rdf = pd.DataFrame({"cod_secc": right})
-    m = ldf.merge(rdf, on="cod_secc", how="outer", indicator=True)
+    m = ldf.merge(rdf, on="cod_secc", how="outer", indicator=True, validate="m:1")
     counts = m["_merge"].value_counts()
     k = to_numeric(hh["kernel_triw14"]).fillna(0) > 0
     het = to_numeric(hh.loc[k, "het_time"])
