@@ -179,7 +179,6 @@ def make_level_enrolled(
     *,
     grade_col: str,
     level_a: str = "s05a_06a",
-    level_b: str = "s05a_06b",
 ) -> pd.Series:
     s05a_06a = to_numeric(df[level_a])
     s05a_grade = to_numeric(df[grade_col])
@@ -236,17 +235,21 @@ def rel_jefe_le4(s02a_05: pd.Series) -> pd.Series:
     return rel
 
 
-def rel_jefe_le3(s02a_05: pd.Series) -> pd.Series:
-    """2016/2019 rel_jefe mapping (threshold <=3)."""
+def rel_jefe_le3(s02a_05: pd.Series, *, residual_gt: float = 8) -> pd.Series:
+    """2016/2019 rel_jefe mapping (threshold <=3).
+
+    Residual cutoff follows the year do-file: 2016 uses ``s02a_05>9`` so
+    code 9 stays 5 (nieto); 2019 uses ``s02a_05>8``, which overwrites 9→5.
+    """
     s = to_numeric(s02a_05)
     rel = pd.Series(np.nan, index=s.index, dtype="float64")
     rel = replace_where(rel, s, s.le(3))
     rel = replace_where(rel, 3.0, s.eq(4))
     rel = replace_where(rel, 4.0, s.eq(5))
-    rel = replace_where(rel, 5.0, s.eq(9))
     rel = replace_where(rel, 6.0, s.eq(6))
     rel = replace_where(rel, 7.0, inlist(s, [7, 8]))
-    rel = replace_where(rel, 8.0, s.gt(8))
+    rel = replace_where(rel, 5.0, s.eq(9))
+    rel = replace_where(rel, 8.0, s.gt(residual_gt))
     return rel
 
 
@@ -295,17 +298,11 @@ def make_contract(df: pd.DataFrame) -> pd.Series:
     return contract
 
 
-def make_poverty(df: pd.DataFrame, *, destring_p: bool = False) -> pd.DataFrame:
+def make_poverty(df: pd.DataFrame) -> pd.DataFrame:
     p0 = to_numeric(df["p0"])
     z = to_numeric(df["z"])
     pext0 = to_numeric(df["pext0"])
     zext = to_numeric(df["zext"])
-    if destring_p:
-        # Stata ``destring p*, replace`` — re-coerce in case of string storage
-        p0 = to_numeric(df["p0"])
-        z = to_numeric(df["z"])
-        pext0 = to_numeric(df["pext0"])
-        zext = to_numeric(df["zext"])
     return pd.DataFrame(
         {
             "poor": p0.eq(1).astype(float),
@@ -330,7 +327,7 @@ def make_sex_binary(df: pd.DataFrame) -> pd.Series:
     return sex
 
 
-def copy_standard_fields(df: pd.DataFrame, out: pd.DataFrame, *, esc_col: str) -> None:
+def copy_standard_fields(df: pd.DataFrame, out: pd.DataFrame) -> None:
     """Copy rename-only demographic / survey weight fields."""
     out["depto"] = to_numeric(df["depto"])
     out["area"] = to_numeric(df["area"])

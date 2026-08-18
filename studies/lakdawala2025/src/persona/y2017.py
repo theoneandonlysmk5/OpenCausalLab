@@ -117,11 +117,11 @@ def harmonize_persona_2017(raw_path: Path | None = None) -> pd.DataFrame:
 
     out["enrollment"] = binary_01(df["s05a_05"])
     out["level_enrolled"] = make_level_enrolled(
-        df, grade_col="s05a_06b", level_a="s05a_06a", level_b="s05a_06b"
+        df, grade_col="s05a_06b"
     )
     out["enrolled_public"] = make_enrolled_public(df)
 
-    copy_standard_fields(df, out, esc_col="aoesc")
+    copy_standard_fields(df, out)
     out["t"] = 2017
 
     out["estudia"] = make_estudia(df)
@@ -157,7 +157,7 @@ def harmonize_persona_2017(raw_path: Path | None = None) -> pd.DataFrame:
     out["places_taxes2"] = make_places_taxes2(df)
     out["contract"] = make_contract(df)
 
-    poverty = make_poverty(df, destring_p=True)
+    poverty = make_poverty(df)
     out = pd.concat([out, poverty], axis=1)
 
     out["health_insurance"] = make_health_insurance(df)

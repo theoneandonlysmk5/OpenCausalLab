@@ -150,11 +150,11 @@ def harmonize_persona_2016(
 
     out["enrollment"] = binary_01(df["s05a_05"])
     out["level_enrolled"] = make_level_enrolled(
-        df, grade_col="s05a_06b", level_a="s05a_06a", level_b="s05a_06b"
+        df, grade_col="s05a_06b"
     )
     out["enrolled_public"] = make_enrolled_public(df)
 
-    copy_standard_fields(df, out, esc_col="e")
+    copy_standard_fields(df, out)
     out["t"] = 2016
 
     out["estudia"] = make_estudia(df)
@@ -164,7 +164,7 @@ def harmonize_persona_2016(
     out["recibe_bono_juancito"] = binary_01(df["s05a_08"])
     out["nocturna"] = make_nocturna(df)
 
-    out["rel_jefe"] = rel_jefe_le3(df["s02a_05"])
+    out["rel_jefe"] = rel_jefe_le3(df["s02a_05"], residual_gt=9)
 
     s2a_08 = to_numeric(df["s02a_08"])
     idioma = pd.Series(np.nan, index=df.index, dtype="float64")
