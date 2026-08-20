@@ -73,12 +73,24 @@ def compile_persona(
     return out
 
 
-def _concat_code(*parts: pd.Series) -> pd.Series:
-    """Stata egen concat of mixed numeric/string parts (no separator)."""
+def _stata_str_ne_empty(s: pd.Series) -> pd.Series:
+    """Stata ``varname != ""`` (missing strings are empty)."""
+    as_str = s.astype("string")
+    return as_str.notna() & as_str.ne("")
+
+
+def _concat_code(*parts: pd.Series, where: pd.Series | None = None) -> pd.Series:
+    """Stata ``egen ... = concat(varlist)`` with no separator.
+
+    If ``where`` is given, results are missing where the condition is false,
+    matching ``egen ... = concat(...) if cond``.
+    """
     as_str = [stata_str(p).fillna("") for p in parts]
     out = as_str[0]
     for p in as_str[1:]:
         out = out + p
+    if where is not None:
+        out = out.where(where.fillna(False))
     return out
 
 
@@ -101,31 +113,43 @@ def clean_persona(compiled: pd.DataFrame | None = None) -> pd.DataFrame:
     prov = df["prov"].astype("string") if "prov" in df.columns else pd.Series(pd.NA, index=df.index, dtype="string")
     mun = df["mun"].astype("string") if "mun" in df.columns else pd.Series(pd.NA, index=df.index, dtype="string")
 
-    aux1 = _concat_code(depto, aux, provincia)
-    aux2 = _concat_code(depto, provincia)
-    aux3 = _concat_code(depto, provincia15)
-    aux5 = _concat_code(depto, provincia16)
-
-    cod_prov = pd.Series(" ", index=df.index, dtype="string")
     mask_1213_lt10 = provincia.lt(10) & inrange(t, 2012, 2013)
     mask_1213_ge10 = provincia.ge(10) & inrange(t, 2012, 2013)
+    mask_2015 = t.eq(2015)
+    mask_2016 = t.eq(2016)
+    mask_2014 = t.eq(2014)
+
+    # egen if is stricter than replace if for 2015: blank provincia15/seccion15
+    # leave aux3 missing, then replace copies that missing onto all t==2015 rows.
+    aux1 = _concat_code(depto, aux, provincia, where=mask_1213_lt10)
+    aux2 = _concat_code(depto, provincia, where=mask_1213_ge10)
+    aux3 = _concat_code(
+        depto, provincia15, where=mask_2015 & _stata_str_ne_empty(provincia15)
+    )
+    aux5 = _concat_code(depto, provincia16, where=mask_2016)
+
+    cod_prov = pd.Series(" ", index=df.index, dtype="string")
     cod_prov = replace_where(cod_prov, aux1, mask_1213_lt10)
     cod_prov = replace_where(cod_prov, aux2, mask_1213_ge10)
-    cod_prov = replace_where(cod_prov, aux3, t.eq(2015))
-    cod_prov = replace_where(cod_prov, aux5, t.eq(2016))
-    cod_prov = replace_where(cod_prov, prov, t.eq(2014))
+    cod_prov = replace_where(cod_prov, aux3, mask_2015)
+    cod_prov = replace_where(cod_prov, aux5, mask_2016)
+    cod_prov = replace_where(cod_prov, prov, mask_2014)
 
-    sec_aux1 = _concat_code(cod_prov, aux, seccion)
-    sec_aux2 = _concat_code(cod_prov, seccion)
-    sec_aux3 = _concat_code(cod_prov, seccion15)
-    sec_aux5 = _concat_code(cod_prov, seccion16)
+    mask_secc_lt10 = seccion.lt(10) & inrange(t, 2012, 2013)
+    mask_secc_ge10 = seccion.ge(10) & inrange(t, 2012, 2013)
+    sec_aux1 = _concat_code(cod_prov, aux, seccion, where=mask_secc_lt10)
+    sec_aux2 = _concat_code(cod_prov, seccion, where=mask_secc_ge10)
+    sec_aux3 = _concat_code(
+        cod_prov, seccion15, where=mask_2015 & _stata_str_ne_empty(seccion15)
+    )
+    sec_aux5 = _concat_code(cod_prov, seccion16, where=mask_2016)
 
     cod_secc = pd.Series(" ", index=df.index, dtype="string")
-    cod_secc = replace_where(cod_secc, sec_aux1, seccion.lt(10) & inrange(t, 2012, 2013))
-    cod_secc = replace_where(cod_secc, sec_aux2, seccion.ge(10) & inrange(t, 2012, 2013))
-    cod_secc = replace_where(cod_secc, sec_aux3, t.eq(2015))
-    cod_secc = replace_where(cod_secc, sec_aux5, t.eq(2016))
-    cod_secc = replace_where(cod_secc, mun, t.eq(2014))
+    cod_secc = replace_where(cod_secc, sec_aux1, mask_secc_lt10)
+    cod_secc = replace_where(cod_secc, sec_aux2, mask_secc_ge10)
+    cod_secc = replace_where(cod_secc, sec_aux3, mask_2015)
+    cod_secc = replace_where(cod_secc, sec_aux5, mask_2016)
+    cod_secc = replace_where(cod_secc, mun, mask_2014)
 
     df["cod_prov"] = to_numeric(cod_prov)
     df["cod_secc"] = to_numeric(cod_secc)

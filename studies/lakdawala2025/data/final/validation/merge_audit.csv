@@ -1,3 +1,3 @@
 merge,left_n,right_n,matched,left_only,right_only,note,kernel_sample_het_time_miss,kernel_sample_n
 persona_id_year ⟕ income_id_year,295482,218360,218360,77122,0,Income years 2012–2017 only; later HH years left_only by design,,
-HHsurvey.cod_secc ⟕ travel.cod_secc,292,339,291,1,48,,4341.0,11991.0
+HHsurvey.cod_secc ⟕ travel.cod_secc,291,339,291,0,48,,4341.0,11991.0
